@@ -7,11 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.3] - 2026-10-16
+
+### Fixed
+
+#### `@icon-by-solar/react` (v1.0.3)
+- **TypeScript Declaration Resolution for Selective Imports:** Published official patch resolving `Cannot find module '../types'` error in modern TypeScript environments (`bundler`, `node16`, `nodenext`, and legacy `node`).
+  - Added dedicated build entries for `src/types.ts` generating `dist/types.d.ts`, `dist/types.d.cts`, `dist/types.js`, and `dist/types.cjs`.
+  - Normalized relative declaration import paths in all 1,246 icon modules (`dist/icons/*.d.ts`) to use explicit `../types.js` extensions.
+  - Added `./types` subpath export in `package.json` for direct type imports (`import type { IconNode, IconVariant } from '@icon-by-solar/react/types'`).
+  - Added `typesVersions` mapping in `package.json` for backwards compatibility with legacy `moduleResolution: "node"`.
+  - Added automated TypeScript regression test suite verifying declaration resolution across `Bundler`, `Node16`, and `NodeNext`.
+  - Bumped version from staged 1.0.2 to 1.0.3 due to npm registry staged conflict.
+
+---
+
 ## [1.0.2] - 2026-10-16
 
 ### Fixed
 
 #### `@icon-by-solar/react` (v1.0.2)
+- Internal release candidate addressing TypeScript declaration resolution.
 - **TypeScript Declaration Resolution for Selective Imports:** Fixed `Cannot find module '../types'` error in modern TypeScript environments (`bundler`, `node16`, `nodenext`, and legacy `node`).
   - Added dedicated build entries for `src/types.ts` generating `dist/types.d.ts`, `dist/types.d.cts`, `dist/types.js`, and `dist/types.cjs`.
   - Normalized relative declaration import paths in all 1,246 icon modules (`dist/icons/*.d.ts`) to use explicit `../types.js` extensions.
