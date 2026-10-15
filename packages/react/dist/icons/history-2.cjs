@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'history-2';
+const category = 'Time';
+const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.25 2C11.25 1.58579 11.5858 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25C2.41421 11.25 2.75 11.5858 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75C11.5858 2.75 11.25 2.41421 11.25 2ZM12 8.25C12.4142 8.25 12.75 8.58579 12.75 9V12.25H16C16.4142 12.25 16.75 12.5858 16.75 13C16.75 13.4142 16.4142 13.75 16 13.75H12C11.5858 13.75 11.25 13.4142 11.25 13V9C11.25 8.58579 11.5858 8.25 12 8.25Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M9.09958 2.39754C9.24874 2.78396 9.05641 3.21814 8.66999 3.36731C8.52855 3.42191 8.38879 3.47988 8.2508 3.54114C7.87221 3.70921 7.42906 3.53856 7.261 3.15997C7.09293 2.78139 7.26358 2.33824 7.64217 2.17017C7.80267 2.09892 7.96526 2.03147 8.1298 1.96795C8.51623 1.81878 8.95041 2.01112 9.09958 2.39754ZM5.6477 4.24026C5.93337 4.54021 5.92178 5.01495 5.62183 5.30061C5.51216 5.40506 5.40505 5.51216 5.30061 5.62183C5.01495 5.92178 4.54021 5.93337 4.24026 5.6477C3.94031 5.36204 3.92873 4.88731 4.21439 4.58736C4.33566 4.46003 4.46002 4.33566 4.58736 4.21439C4.88731 3.92873 5.36204 3.94031 5.6477 4.24026ZM3.15997 7.261C3.53856 7.42907 3.70921 7.87222 3.54114 8.2508C3.47988 8.38879 3.42191 8.52855 3.36731 8.66999C3.21814 9.05641 2.78396 9.24874 2.39754 9.09958C2.01112 8.95041 1.81878 8.51623 1.96795 8.12981C2.03147 7.96526 2.09892 7.80267 2.17017 7.64217C2.33824 7.26358 2.78139 7.09293 3.15997 7.261Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.25 2C11.25 1.58579 11.5858 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25C2.41421 11.25 2.75 11.5858 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75C11.5858 2.75 11.25 2.41421 11.25 2Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "fillRule": "evenodd", "clipRule": "evenodd", "d": "M9.09963 2.39808C9.24879 2.7845 9.05646 3.21868 8.67004 3.36785C8.52861 3.42245 8.38884 3.48042 8.25085 3.54168C7.87227 3.70975 7.42912 3.5391 7.26105 3.16051C7.09298 2.78193 7.26364 2.33878 7.64222 2.17071C7.80273 2.09946 7.96531 2.03201 8.12986 1.96849C8.51628 1.81932 8.95046 2.01166 9.09963 2.39808ZM5.64776 4.2408C5.93342 4.54075 5.92183 5.01549 5.62188 5.30115C5.51222 5.40559 5.40511 5.5127 5.30066 5.62237C5.015 5.92232 4.54027 5.93391 4.24032 5.64824C3.94037 5.36258 3.92878 4.88785 4.21445 4.5879C4.33571 4.46056 4.46008 4.3362 4.58741 4.21493C4.88736 3.92927 5.36209 3.94085 5.64776 4.2408ZM3.16002 7.26154C3.53861 7.42961 3.70926 7.87276 3.5412 8.25134C3.47994 8.38933 3.42196 8.52909 3.36736 8.67053C3.21819 9.05695 2.78401 9.24928 2.39759 9.10012C2.01117 8.95095 1.81884 8.51677 1.968 8.13035C2.03152 7.9658 2.09897 7.80321 2.17022 7.64271C2.33829 7.26412 2.78144 7.09347 3.16002 7.26154Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M12 8.25C12.4142 8.25 12.75 8.58579 12.75 9V12.25H16C16.4142 12.25 16.75 12.5858 16.75 13C16.75 13.4142 16.4142 13.75 16 13.75H12C11.5858 13.75 11.25 13.4142 11.25 13V9C11.25 8.58579 11.5858 8.25 12 8.25Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.25 2C11.25 1.58579 11.5858 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25C2.41421 11.25 2.75 11.5858 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75C11.5858 2.75 11.25 2.41421 11.25 2ZM12 8.25C12.4142 8.25 12.75 8.58579 12.75 9V12.25H16C16.4142 12.25 16.75 12.5858 16.75 13C16.75 13.4142 16.4142 13.75 16 13.75H12C11.5858 13.75 11.25 13.4142 11.25 13V9C11.25 8.58579 11.5858 8.25 12 8.25Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M9.09958 2.39754C9.24874 2.78396 9.05641 3.21814 8.66999 3.36731C8.52855 3.42191 8.38879 3.47988 8.2508 3.54114C7.87221 3.70921 7.42906 3.53856 7.261 3.15997C7.09293 2.78139 7.26358 2.33824 7.64217 2.17017C7.80267 2.09892 7.96526 2.03147 8.1298 1.96795C8.51623 1.81878 8.95041 2.01112 9.09958 2.39754ZM5.6477 4.24026C5.93337 4.54021 5.92178 5.01495 5.62183 5.30061C5.51216 5.40506 5.40505 5.51216 5.30061 5.62183C5.01495 5.92178 4.54021 5.93337 4.24026 5.6477C3.94031 5.36204 3.92873 4.88731 4.21439 4.58736C4.33566 4.46003 4.46002 4.33566 4.58736 4.21439C4.88731 3.92873 5.36204 3.94031 5.6477 4.24026ZM3.15997 7.261C3.53856 7.42907 3.70921 7.87222 3.54114 8.2508C3.47988 8.38879 3.42191 8.52855 3.36731 8.66999C3.21814 9.05641 2.78396 9.24874 2.39754 9.09958C2.01112 8.95041 1.81878 8.51623 1.96795 8.12981C2.03147 7.96526 2.09892 7.80267 2.17017 7.64217C2.33824 7.26358 2.78139 7.09293 3.15997 7.261Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const History2Outline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const History2Bold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const History2BoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const History2 = History2Outline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  History2,
+  History2Outline,
+  History2Bold,
+  History2BoldDuotone,
+  default: History2
+};

@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'reply';
+const category = 'Arrows Action';
+const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M10.0303 6.46967C10.3232 6.76256 10.3232 7.23744 10.0303 7.53033L6.31066 11.25L14.5 11.25C15.4534 11.25 16.8667 11.5298 18.0632 12.3913C19.298 13.2804 20.25 14.7556 20.25 17C20.25 17.4142 19.9142 17.75 19.5 17.75C19.0858 17.75 18.75 17.4142 18.75 17C18.75 15.2444 18.0353 14.2196 17.1868 13.6087C16.3 12.9702 15.2133 12.75 14.5 12.75L6.31066 12.75L10.0303 16.4697C10.3232 16.7626 10.3232 17.2374 10.0303 17.5303C9.73744 17.8232 9.26256 17.8232 8.96967 17.5303L3.96967 12.5303C3.67678 12.2374 3.67678 11.7626 3.96967 11.4697L8.96967 6.46967C9.26256 6.17678 9.73744 6.17678 10.0303 6.46967Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M10.0303 6.46967C9.73744 6.17678 9.26256 6.17678 8.96967 6.46967L3.96967 11.4697C3.67678 11.7626 3.67678 12.2374 3.96967 12.5303L8.96967 17.5303C9.26256 17.8232 9.73744 17.8232 10.0303 17.5303C10.3232 17.2374 10.3232 16.7626 10.0303 16.4697L5.56066 12L10.0303 7.53033C10.3232 7.23744 10.3232 6.76256 10.0303 6.46967Z", "fill": "#1C274C"}], ["g", {"opacity": "0.5"}], ["path", {"d": "M6.31066 11.25H14.5C15.4534 11.25 16.8667 11.5298 18.0632 12.3914C19.298 13.2804 20.25 14.7556 20.25 17C20.25 17.4142 19.9142 17.75 19.5 17.75C19.0858 17.75 18.75 17.4142 18.75 17C18.75 15.2444 18.0353 14.2196 17.1868 13.6087C16.3 12.9702 15.2133 12.75 14.5 12.75L6.31066 12.75L5.56066 12L6.31066 11.25Z", "fill": "#1C274C"}], ["path", {"d": "M3.80691 11.7129C3.77024 11.8013 3.75 11.8983 3.75 12C3.75 11.9023 3.76897 11.8046 3.80691 11.7129Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M10.0303 6.46967C10.3232 6.76256 10.3232 7.23744 10.0303 7.53033L6.31066 11.25L14.5 11.25C15.4534 11.25 16.8667 11.5298 18.0632 12.3913C19.298 13.2804 20.25 14.7556 20.25 17C20.25 17.4142 19.9142 17.75 19.5 17.75C19.0858 17.75 18.75 17.4142 18.75 17C18.75 15.2444 18.0353 14.2196 17.1868 13.6087C16.3 12.9702 15.2133 12.75 14.5 12.75L6.31066 12.75L10.0303 16.4697C10.3232 16.7626 10.3232 17.2374 10.0303 17.5303C9.73744 17.8232 9.26256 17.8232 8.96967 17.5303L3.96967 12.5303C3.67678 12.2374 3.67678 11.7626 3.96967 11.4697L8.96967 6.46967C9.26256 6.17678 9.73744 6.17678 10.0303 6.46967Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const ReplyOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const ReplyBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const ReplyBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Reply = ReplyOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  Reply,
+  ReplyOutline,
+  ReplyBold,
+  ReplyBoldDuotone,
+  default: Reply
+};

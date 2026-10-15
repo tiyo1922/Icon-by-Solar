@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'flashlight-on';
+const category = 'Essentional, UI';
+const nodes = {"bold": [["path", {"d": "M12.75 2C12.75 1.58579 12.4142 1.25 12 1.25C11.5858 1.25 11.25 1.58579 11.25 2V5C11.25 5.41421 11.5858 5.75 12 5.75C12.4142 5.75 12.75 5.41421 12.75 5V2Z", "fill": "#1C274C"}], ["path", {"d": "M6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L7.46967 5.53033C7.76256 5.82322 8.23744 5.82322 8.53033 5.53033C8.82322 5.23744 8.82322 4.76256 8.53033 4.46967L6.53033 2.46967Z", "fill": "#1C274C"}], ["path", {"d": "M18.5303 2.46967C18.2374 2.17678 17.7626 2.17678 17.4697 2.46967L15.4697 4.46967C15.1768 4.76256 15.1768 5.23744 15.4697 5.53033C15.7626 5.82322 16.2374 5.82322 16.5303 5.53033L18.5303 3.53033C18.8232 3.23744 18.8232 2.76256 18.5303 2.46967Z", "fill": "#1C274C"}], ["path", {"d": "M20 10L20 10.25H4.00002L4 10C4 9.05719 4 8.58579 4.29289 8.29289C4.58579 8 5.05719 8 6 8H18C18.9428 8 19.4142 8 19.7071 8.29289C20 8.58579 20 9.05719 20 10Z", "fill": "#1C274C"}], ["path", {"d": "M16.1716 14.8284C16.0094 14.9906 15.87 15.13 15.75 15.2548V15.25H8.25V15.2548C8.12999 15.13 7.99061 14.9906 7.8285 14.8285L4.75 11.75H19.25L16.1716 14.8284Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M9 20V17.6569C9 17.2795 9 16.9893 8.98503 16.75H15.015C15 16.9893 15 17.2795 15 17.6569V20C15 20.9428 15 21.4142 14.7071 21.7071C14.4142 22 13.9428 22 13 22H11C10.0572 22 9.58579 22 9.29289 21.7071C9 21.4142 9 20.9428 9 20ZM12 18.25C12.4142 18.25 12.75 18.5858 12.75 19V20C12.75 20.4142 12.4142 20.75 12 20.75C11.5858 20.75 11.25 20.4142 11.25 20V19C11.25 18.5858 11.5858 18.25 12 18.25Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"opacity": "0.5", "d": "M9.00037 19V17.6569C9.00037 16.8394 9.00037 16.4306 8.84813 16.0631C8.83933 16.0418 8.83006 16.0208 8.82031 16H15.1804C15.1707 16.0208 15.1614 16.0418 15.1526 16.0631C15.0004 16.4306 15.0004 16.8394 15.0004 17.6569V20C15.0004 20.9428 15.0004 21.4142 14.7075 21.7071C14.4146 22 13.9432 22 13.0004 22H11.0004C10.0576 22 9.58616 22 9.29327 21.7071C9.00037 21.4142 9.00037 20.9428 9.00037 20V19Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M12 18.25C12.4142 18.25 12.75 18.5858 12.75 19V20C12.75 20.4142 12.4142 20.75 12 20.75C11.5858 20.75 11.25 20.4142 11.25 20V19C11.25 18.5858 11.5858 18.25 12 18.25Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M20 10.1716V10C20 9.05719 20 8.58579 19.7071 8.29289C19.4142 8 18.9428 8 18 8H6C5.05719 8 4.58579 8 4.29289 8.29289C4 8.58579 4 9.05719 4 10V10.1716C4 10.5803 4 10.7847 4.07612 10.9685C4.08052 10.9791 4.08516 10.9896 4.09003 11H19.91C19.9148 10.9896 19.9195 10.9791 19.9239 10.9685C20 10.7847 20 10.5803 20 10.1716Z", "fill": "#1C274C"}], ["path", {"d": "M16.1714 14.8284L19.414 11.5858C19.6863 11.3135 19.8304 11.1694 19.9098 11H4.08984C4.16926 11.1694 4.31329 11.3135 4.5856 11.5858L7.82824 14.8284C8.37287 15.3731 8.66093 15.6611 8.81975 16H15.1799C15.3387 15.6611 15.6268 15.373 16.1714 14.8284Z", "fill": "#1C274C"}], ["path", {"d": "M12.75 2C12.75 1.58579 12.4142 1.25 12 1.25C11.5858 1.25 11.25 1.58579 11.25 2V5C11.25 5.41421 11.5858 5.75 12 5.75C12.4142 5.75 12.75 5.41421 12.75 5V2Z", "fill": "#1C274C"}], ["path", {"d": "M6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L7.46967 5.53033C7.76256 5.82322 8.23744 5.82322 8.53033 5.53033C8.82322 5.23744 8.82322 4.76256 8.53033 4.46967L6.53033 2.46967Z", "fill": "#1C274C"}], ["path", {"d": "M18.5303 2.46967C18.2374 2.17678 17.7626 2.17678 17.4697 2.46967L15.4697 4.46967C15.1768 4.76256 15.1768 5.23744 15.4697 5.53033C15.7626 5.82322 16.2374 5.82322 16.5303 5.53033L18.5303 3.53033C18.8232 3.23744 18.8232 2.76256 18.5303 2.46967Z", "fill": "#1C274C"}]], "outline": [["path", {"d": "M12.0001 1.25C12.4143 1.25 12.7501 1.58579 12.7501 2V5C12.7501 5.41421 12.4143 5.75 12.0001 5.75C11.5858 5.75 11.2501 5.41421 11.2501 5V2C11.2501 1.58579 11.5858 1.25 12.0001 1.25Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M5.95532 7.25H18.0448C18.4776 7.24995 18.8745 7.24991 19.1973 7.29331C19.5528 7.3411 19.9285 7.45355 20.2375 7.76257C20.5465 8.07159 20.659 8.44732 20.7068 8.8028C20.7502 9.12561 20.7501 9.52244 20.7501 9.95526L20.7501 10.1716L20.7502 10.2516C20.7512 10.5773 20.7522 10.9288 20.6169 11.2555C20.4815 11.5822 20.2323 11.83 20.0013 12.0596L19.9446 12.1161L16.702 15.3588C16.0806 15.9801 15.9271 16.1524 15.8452 16.3501C15.7633 16.5477 15.7501 16.7782 15.7501 17.6569V22C15.7501 22.4142 15.4143 22.75 15.0001 22.75C14.5859 22.75 14.2501 22.4142 14.2501 22L14.25 17.536C14.2497 17.2522 14.2495 16.9925 14.2634 16.75H9.73675C9.75067 16.9925 9.75042 17.2522 9.75014 17.536L9.75007 22C9.75007 22.4142 9.41428 22.75 9.00007 22.75C8.58585 22.75 8.25007 22.4142 8.25007 22V17.6569C8.25007 16.7782 8.23679 16.5477 8.15492 16.3501C8.07304 16.1524 7.9195 15.9801 7.29817 15.3588L4.05552 12.1161L3.99881 12.0596C3.76786 11.83 3.5186 11.5822 3.38328 11.2555C3.24796 10.9288 3.24897 10.5773 3.24991 10.2516L3.25007 10.1716L3.25006 9.95526C3.25001 9.52244 3.24997 9.12561 3.29337 8.8028C3.34116 8.44732 3.45361 8.07159 3.76263 7.76257C4.07165 7.45355 4.44738 7.3411 4.80286 7.29331C5.12567 7.24991 5.5225 7.24995 5.95532 7.25ZM15.5558 14.3835C15.2439 14.6948 14.973 14.9652 14.7627 15.25H9.23748C9.02712 14.9652 8.75625 14.6948 8.44434 14.3835L5.81072 11.75H18.1894L15.5558 14.3835ZM19.25 10.25L19.2501 10C19.2501 9.5074 19.2485 9.21339 19.2201 9.00267C19.2072 8.90611 19.1919 8.85775 19.1829 8.83597L19.1803 8.83004L19.1782 8.82568L19.1768 8.82324L19.1744 8.82187L19.1702 8.8198L19.1641 8.81717C19.1423 8.80821 19.094 8.79291 18.9974 8.77993C18.7867 8.7516 18.4927 8.75001 18.0001 8.75001H6.00007C5.50746 8.75001 5.21346 8.7516 5.00273 8.77993C4.90617 8.79291 4.85781 8.80821 4.83603 8.81717C4.83099 8.81924 4.82767 8.82086 4.82574 8.82187L4.82331 8.82324L4.82193 8.82568C4.82092 8.82761 4.8193 8.83093 4.81723 8.83597C4.80827 8.85775 4.79297 8.90611 4.77999 9.00267C4.75166 9.21339 4.75007 9.5074 4.75007 10L4.75011 10.25H19.25Z", "fill": "white"}], ["path", {"d": "M6.53039 2.46967C6.2375 2.17678 5.76262 2.17678 5.46973 2.46967C5.17684 2.76256 5.17684 3.23744 5.46973 3.53033L7.46973 5.53033C7.76262 5.82322 8.2375 5.82322 8.53039 5.53033C8.82328 5.23744 8.82328 4.76256 8.53039 4.46967L6.53039 2.46967Z", "fill": "white"}], ["path", {"d": "M18.5304 2.46967C18.2375 2.17678 17.7626 2.17678 17.4697 2.46967L15.4697 4.46967C15.1768 4.76256 15.1768 5.23744 15.4697 5.53033C15.7626 5.82322 16.2375 5.82322 16.5304 5.53033L18.5304 3.53033C18.8233 3.23744 18.8233 2.76256 18.5304 2.46967Z", "fill": "white"}], ["path", {"d": "M12.7501 19C12.7501 18.5858 12.4143 18.25 12.0001 18.25C11.5858 18.25 11.2501 18.5858 11.2501 19V21C11.2501 21.4142 11.5858 21.75 12.0001 21.75C12.4143 21.75 12.7501 21.4142 12.7501 21V19Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const FlashlightOnOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const FlashlightOnBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const FlashlightOnBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const FlashlightOn = FlashlightOnOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  FlashlightOn,
+  FlashlightOnOutline,
+  FlashlightOnBold,
+  FlashlightOnBoldDuotone,
+  default: FlashlightOn
+};

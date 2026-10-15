@@ -1,0 +1,19 @@
+import React from 'react';
+import { IconNode } from '../types';
+
+export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export declare const iconName: 'alarm-pause';
+export declare const category: 'Time';
+export declare const nodes: Record<string, IconNode[]>;
+export declare const AlarmPauseOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export declare const AlarmPauseBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export declare const AlarmPauseBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export declare const AlarmPause: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export default AlarmPause;

@@ -1,0 +1,18 @@
+{
+  "name": "react-consumer-test",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "test": "node test-render.js"
+  },
+  "dependencies": {
+    "@icon-by-solar/react": "file:../../../packages/react",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14"
+  }
+}

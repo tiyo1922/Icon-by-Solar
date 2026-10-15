@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'server-path';
+const category = 'Electronic, Devices';
+const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M22 18.2105C22 17.8399 21.6876 17.5395 21.3023 17.5395H13.7252C13.5364 17.0909 13.164 16.7327 12.6977 16.5511V13.7368H18.5116C20.0529 13.7368 21.3023 12.5351 21.3023 11.0526C21.3023 9.57018 20.0529 8.36842 18.5116 8.36842C20.0529 8.36842 21.3023 7.16666 21.3023 5.68421C21.3023 4.20176 20.0529 3 18.5116 3H5.48837C3.94711 3 2.69767 4.20176 2.69767 5.68421C2.69767 7.16666 3.94711 8.36842 5.48837 8.36842C3.94711 8.36842 2.69767 9.57018 2.69767 11.0526C2.69767 12.5351 3.94711 13.7368 5.48837 13.7368H11.3023V16.5511C10.836 16.7327 10.4636 17.0909 10.2748 17.5395H2.69767C2.31236 17.5395 2 17.8399 2 18.2105C2 18.5811 2.31236 18.8816 2.69767 18.8816H10.2748C10.5508 19.5374 11.2192 20 12 20C12.7808 20 13.4492 19.5374 13.7252 18.8816H21.3023C21.6876 18.8816 22 18.5811 22 18.2105ZM12.2326 5.68421C12.2326 5.3136 12.5449 5.01316 12.9302 5.01316H18.5116C18.8969 5.01316 19.2093 5.3136 19.2093 5.68421C19.2093 6.05482 18.8969 6.35526 18.5116 6.35526H12.9302C12.5449 6.35526 12.2326 6.05482 12.2326 5.68421ZM12.2326 11.0526C12.2326 10.682 12.5449 10.3816 12.9302 10.3816H18.5116C18.8969 10.3816 19.2093 10.682 19.2093 11.0526C19.2093 11.4232 18.8969 11.7237 18.5116 11.7237H12.9302C12.5449 11.7237 12.2326 11.4232 12.2326 11.0526ZM6.4186 6.57895C6.93236 6.57895 7.34884 6.17836 7.34884 5.68421C7.34884 5.19006 6.93236 4.78947 6.4186 4.78947C5.90485 4.78947 5.48837 5.19006 5.48837 5.68421C5.48837 6.17836 5.90485 6.57895 6.4186 6.57895ZM6.4186 11.9474C6.93236 11.9474 7.34884 11.5468 7.34884 11.0526C7.34884 10.5585 6.93236 10.1579 6.4186 10.1579C5.90485 10.1579 5.48837 10.5585 5.48837 11.0526C5.48837 11.5468 5.90485 11.9474 6.4186 11.9474Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.3024 13.7368H12.6978H18.5117C20.053 13.7368 21.3024 12.5351 21.3024 11.0526C21.3024 9.57018 20.053 8.36842 18.5117 8.36842C20.053 8.36842 21.3024 7.16666 21.3024 5.68421C21.3024 4.20176 20.053 3 18.5117 3H5.48845C3.94719 3 2.69775 4.20176 2.69775 5.68421C2.69775 7.16666 3.94719 8.36842 5.48845 8.36842C3.94719 8.36842 2.69775 9.57018 2.69775 11.0526C2.69775 12.5351 3.94719 13.7368 5.48845 13.7368H11.3024ZM12.9303 5.01316C12.545 5.01316 12.2326 5.3136 12.2326 5.68421C12.2326 6.05482 12.545 6.35526 12.9303 6.35526H18.5117C18.897 6.35526 19.2094 6.05482 19.2094 5.68421C19.2094 5.3136 18.897 5.01316 18.5117 5.01316H12.9303ZM12.9303 10.3816C12.545 10.3816 12.2326 10.682 12.2326 11.0526C12.2326 11.4232 12.545 11.7237 12.9303 11.7237H18.5117C18.897 11.7237 19.2094 11.4232 19.2094 11.0526C19.2094 10.682 18.897 10.3816 18.5117 10.3816H12.9303ZM7.34892 5.68421C7.34892 6.17836 6.93244 6.57895 6.41868 6.57895C5.90493 6.57895 5.48845 6.17836 5.48845 5.68421C5.48845 5.19006 5.90493 4.78947 6.41868 4.78947C6.93244 4.78947 7.34892 5.19006 7.34892 5.68421ZM7.34892 11.0526C7.34892 11.5468 6.93244 11.9474 6.41868 11.9474C5.90493 11.9474 5.48845 11.5468 5.48845 11.0526C5.48845 10.5585 5.90493 10.1579 6.41868 10.1579C6.93244 10.1579 7.34892 10.5585 7.34892 11.0526Z", "fill": "#1C274C"}], ["path", {"opacity": "0.6", "d": "M22 18.212C22 17.8414 21.6876 17.5409 21.3023 17.5409H13.7252C13.5364 17.0923 13.164 16.7341 12.6977 16.5526V13.7383H11.3023V16.5526C10.836 16.7341 10.4636 17.0923 10.2748 17.5409H2.69767C2.31236 17.5409 2 17.8414 2 18.212C2 18.5826 2.31236 18.883 2.69767 18.883H10.2748C10.5508 19.5388 11.2192 20.0014 12 20.0014C12.7808 20.0014 13.4492 19.5388 13.7252 18.883H21.3023C21.6876 18.883 22 18.5826 22 18.212Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M1.25 5C1.25 2.92893 2.92893 1.25 5 1.25H19C21.0711 1.25 22.75 2.92893 22.75 5C22.75 6.2267 22.161 7.31583 21.2504 8C22.161 8.68417 22.75 9.7733 22.75 11C22.75 13.0711 21.0711 14.75 19 14.75H12.75V16.3535C13.6658 16.6125 14.3875 17.3342 14.6465 18.25H22C22.4142 18.25 22.75 18.5858 22.75 19C22.75 19.4142 22.4142 19.75 22 19.75H14.6465C14.32 20.9043 13.2588 21.75 12 21.75C10.7412 21.75 9.67998 20.9043 9.35352 19.75H2C1.58579 19.75 1.25 19.4142 1.25 19C1.25 18.5858 1.58579 18.25 2 18.25H9.35352C9.61255 17.3342 10.3342 16.6125 11.25 16.3535V14.75H5C2.92893 14.75 1.25 13.0711 1.25 11C1.25 9.7733 1.83901 8.68417 2.74963 8C1.83901 7.31583 1.25 6.2267 1.25 5ZM5 7.25C3.75736 7.25 2.75 6.24264 2.75 5C2.75 3.75736 3.75736 2.75 5 2.75H19C20.2426 2.75 21.25 3.75736 21.25 5C21.25 6.24264 20.2426 7.25 19 7.25H5ZM19 8.75H5C3.75736 8.75 2.75 9.75736 2.75 11C2.75 12.2426 3.75736 13.25 5 13.25H19C20.2426 13.25 21.25 12.2426 21.25 11C21.25 9.75736 20.2426 8.75 19 8.75ZM12.25 5C12.25 4.58579 12.5858 4.25 13 4.25H19C19.4142 4.25 19.75 4.58579 19.75 5C19.75 5.41421 19.4142 5.75 19 5.75H13C12.5858 5.75 12.25 5.41421 12.25 5ZM12.25 11C12.25 10.5858 12.5858 10.25 13 10.25H19C19.4142 10.25 19.75 10.5858 19.75 11C19.75 11.4142 19.4142 11.75 19 11.75H13C12.5858 11.75 12.25 11.4142 12.25 11ZM12 17.75C11.3096 17.75 10.75 18.3096 10.75 19C10.75 19.6904 11.3096 20.25 12 20.25C12.6904 20.25 13.25 19.6904 13.25 19C13.25 18.3096 12.6904 17.75 12 17.75Z", "fill": "white"}], ["path", {"d": "M7 5C7 5.55228 6.55228 6 6 6C5.44772 6 5 5.55228 5 5C5 4.44772 5.44772 4 6 4C6.55228 4 7 4.44772 7 5Z", "fill": "white"}], ["path", {"d": "M7 11C7 11.5523 6.55228 12 6 12C5.44772 12 5 11.5523 5 11C5 10.4477 5.44772 10 6 10C6.55228 10 7 10.4477 7 11Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const ServerPathOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const ServerPathBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const ServerPathBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const ServerPath = ServerPathOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  ServerPath,
+  ServerPathOutline,
+  ServerPathBold,
+  ServerPathBoldDuotone,
+  default: ServerPath
+};

@@ -1,0 +1,76 @@
+import React from 'react';
+
+export const iconName = 'cart-5';
+export const category = 'Shopping, Ecommerce';
+export const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M14.6646 2.32934C15.0351 2.1441 15.4856 2.29427 15.6708 2.66475L17.872 7.06708C19.2251 7.17102 20.0742 7.43643 20.6221 8.11413C21.5226 9.2281 21.1634 10.9045 20.4449 14.2573L20.0164 16.2573C19.5294 18.5299 19.2859 19.6662 18.4608 20.3332C17.6357 21.0002 16.4737 21.0002 14.1495 21.0002H9.85053C7.52639 21.0002 6.36432 21.0002 5.53925 20.3332C4.71418 19.6662 4.47069 18.5299 3.98372 16.2573L3.55514 14.2573C2.83668 10.9045 2.47745 9.2281 3.378 8.11413C3.92585 7.43644 4.77494 7.17103 6.12802 7.06708L8.32918 2.66475C8.51442 2.29427 8.96493 2.1441 9.33541 2.32934C9.70589 2.51459 9.85606 2.96509 9.67082 3.33557L7.83589 7.00543C8.31911 7.00016 8.84638 7.00016 9.42196 7.00016H14.5781C15.1537 7.00016 15.6809 7.00016 16.1641 7.00543L14.3292 3.33557C14.1439 2.96509 14.2941 2.51459 14.6646 2.32934ZM7.25 12.0002C7.25 11.586 7.58579 11.2502 8 11.2502H16C16.4142 11.2502 16.75 11.586 16.75 12.0002C16.75 12.4144 16.4142 12.7502 16 12.7502H8C7.58579 12.7502 7.25 12.4144 7.25 12.0002ZM10 14.2502C9.58579 14.2502 9.25 14.586 9.25 15.0002C9.25 15.4144 9.58579 15.7502 10 15.7502H14C14.4142 15.7502 14.75 15.4144 14.75 15.0002C14.75 14.586 14.4142 14.2502 14 14.2502H10Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"opacity": "0.5", "d": "M3.55514 14.2572C2.83668 10.9043 2.47745 9.22793 3.378 8.11397C4.27855 7 5.99302 7 9.42196 7H14.5781C18.0071 7 19.7215 7 20.6221 8.11397C21.5226 9.22793 21.1634 10.9043 20.4449 14.2572L20.0164 16.2572C19.5294 18.5297 19.2859 19.666 18.4608 20.333C17.6357 21 16.4737 21 14.1495 21H9.85053C7.52639 21 6.36432 21 5.53925 20.333C4.71418 19.666 4.47069 18.5297 3.98372 16.2572L3.55514 14.2572Z", "fill": "#1C274C"}], ["path", {"d": "M8 11.25C7.58579 11.25 7.25 11.5858 7.25 12C7.25 12.4142 7.58579 12.75 8 12.75H16C16.4142 12.75 16.75 12.4142 16.75 12C16.75 11.5858 16.4142 11.25 16 11.25H8Z", "fill": "#1C274C"}], ["path", {"d": "M9.25 15C9.25 14.5858 9.58579 14.25 10 14.25H14C14.4142 14.25 14.75 14.5858 14.75 15C14.75 15.4142 14.4142 15.75 14 15.75H10C9.58579 15.75 9.25 15.4142 9.25 15Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M14.6648 2.32934C15.0352 2.1441 15.4857 2.29427 15.671 2.66475L18.671 8.66475C18.8562 9.03524 18.7061 9.48574 18.3356 9.67099C17.9651 9.85623 17.5146 9.70606 17.3293 9.33558L14.3293 3.33557C14.1441 2.96509 14.2943 2.51459 14.6648 2.32934Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M9.33525 2.32934C8.96476 2.1441 8.51426 2.29427 8.32902 2.66475L5.32902 8.66475C5.14377 9.03524 5.29394 9.48574 5.66443 9.67099C6.03491 9.85623 6.48541 9.70606 6.67066 9.33558L9.67066 3.33557C9.8559 2.96509 9.70573 2.51459 9.33525 2.32934Z", "fill": "#1C274C"}]], "outline": [["path", {"d": "M7.24995 12.0002C7.24995 11.586 7.58573 11.2502 7.99995 11.2502H15.9999C16.4142 11.2502 16.7499 11.586 16.7499 12.0002C16.7499 12.4144 16.4142 12.7502 15.9999 12.7502H7.99995C7.58573 12.7502 7.24995 12.4144 7.24995 12.0002Z", "fill": "white"}], ["path", {"d": "M9.99995 14.2502C9.58573 14.2502 9.24995 14.586 9.24995 15.0002C9.24995 15.4144 9.58573 15.7502 9.99995 15.7502H13.9999C14.4142 15.7502 14.7499 15.4144 14.7499 15.0002C14.7499 14.586 14.4142 14.2502 13.9999 14.2502H9.99995Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M14.6645 2.32934C15.035 2.1441 15.4855 2.29427 15.6708 2.66475L17.4841 6.29135C17.9116 6.31309 18.3015 6.3463 18.6548 6.39702C19.7105 6.54861 20.5843 6.87448 21.2053 7.64262C21.8263 8.41077 21.9618 9.33344 21.8888 10.3975C21.8181 11.4287 21.5394 12.729 21.191 14.3547L20.7396 16.4614C20.5047 17.5578 20.3141 18.4472 20.0743 19.142C19.8244 19.8661 19.4949 20.4616 18.9323 20.9164C18.3696 21.3713 17.7184 21.5686 16.958 21.6613C16.2284 21.7502 15.3188 21.7502 14.1974 21.7502H9.80252C8.6812 21.7502 7.77159 21.7502 7.04196 21.6613C6.28159 21.5686 5.63033 21.3713 5.06769 20.9164C4.50505 20.4616 4.17561 19.8661 3.92569 19.142C3.68586 18.4472 3.49529 17.5578 3.26035 16.4614L2.80893 14.3547C2.46055 12.7291 2.18188 11.4287 2.11115 10.3975C2.03816 9.33344 2.17371 8.41077 2.7947 7.64262C3.41568 6.87448 4.28947 6.54861 5.34519 6.39702C5.69846 6.3463 6.08832 6.31309 6.51583 6.29135L8.32913 2.66475C8.51437 2.29427 8.96487 2.1441 9.33536 2.32934C9.70584 2.51459 9.85601 2.96509 9.67077 3.33557L8.21244 6.25223C8.576 6.25015 8.95865 6.25016 9.36076 6.25016H14.6392C15.0412 6.25016 15.424 6.25015 15.7875 6.25223L14.3291 3.33557C14.1439 2.96509 14.2941 2.51459 14.6645 2.32934ZM5.73206 7.85888L5.32913 8.66475C5.14388 9.03524 5.29405 9.48574 5.66454 9.67099C6.03502 9.85623 6.48553 9.70606 6.67077 9.33558L7.45802 7.76107C8.02842 7.7505 8.67786 7.75016 9.42191 7.75016H14.5781C15.3221 7.75016 15.9715 7.7505 16.5419 7.76107L17.3291 9.33558C17.5144 9.70606 17.9649 9.85623 18.3354 9.67099C18.7058 9.48574 18.856 9.03524 18.6708 8.66475L18.2678 7.85887C18.327 7.86603 18.3849 7.87366 18.4416 7.8818C19.3255 8.00871 19.7592 8.23982 20.0388 8.58564C20.3183 8.93146 20.4534 9.40398 20.3923 10.2948C20.3298 11.206 20.0756 12.401 19.7115 14.1002L19.2829 16.1002C19.0355 17.2547 18.8629 18.0543 18.6564 18.6526C18.4565 19.2316 18.2517 19.5378 17.9893 19.7499C17.7268 19.9621 17.3845 20.0982 16.7766 20.1723C16.1482 20.2489 15.3302 20.2502 14.1495 20.2502H9.85048C8.66972 20.2502 7.85175 20.2489 7.22341 20.1723C6.61545 20.0982 6.27314 19.9621 6.01071 19.7499C5.74827 19.5378 5.54343 19.2316 5.3436 18.6526C5.13707 18.0543 4.96442 17.2547 4.71701 16.1002L4.28844 14.1002C3.92432 12.401 3.67013 11.206 3.60763 10.2948C3.54652 9.40398 3.68163 8.93146 3.9612 8.58564C4.24076 8.23982 4.67449 8.00871 5.55837 7.8818C5.61501 7.87367 5.67289 7.86604 5.73206 7.85888Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = { ...attrs };
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity ?? attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, { key: index, ...computed });
+  });
+}
+
+export const Cart5Outline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const Cart5Bold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const Cart5BoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const Cart5 = Cart5Outline;
+export default Cart5;

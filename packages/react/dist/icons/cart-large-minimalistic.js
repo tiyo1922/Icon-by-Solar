@@ -1,0 +1,76 @@
+import React from 'react';
+
+export const iconName = 'cart-large-minimalistic';
+export const category = 'Shopping, Ecommerce';
+export const nodes = {"bold": [["path", {"d": "M2.08416 2.75145C2.22155 2.36068 2.6497 2.15527 3.04047 2.29266L3.34187 2.39862C3.95839 2.61536 4.48203 2.79943 4.89411 3.00163C5.33474 3.21784 5.71259 3.48417 5.99677 3.90003C6.27875 4.31268 6.39517 4.76539 6.4489 5.26177C6.47295 5.48397 6.48564 5.72991 6.49233 6.00024H17.1305C18.8155 6.00024 20.3323 6.00024 20.7762 6.57733C21.2202 7.15441 21.0466 8.02394 20.6995 9.763L20.1997 12.1877C19.8846 13.7166 19.727 14.481 19.1753 14.9306C18.6236 15.3802 17.8431 15.3802 16.2821 15.3802H10.9792C8.19028 15.3802 6.79583 15.3802 5.92943 14.4664C5.06302 13.5526 4.99979 12.5818 4.99979 9.64024L4.99979 7.03856C4.99979 6.29862 4.99877 5.8034 4.95761 5.42319C4.91828 5.05984 4.84858 4.87842 4.75832 4.74634C4.67026 4.61747 4.53659 4.49704 4.23336 4.34826C3.91052 4.18985 3.47177 4.0343 2.80416 3.79958L2.54295 3.70775C2.15218 3.57036 1.94678 3.14221 2.08416 2.75145Z", "fill": "#1C274C"}], ["path", {"d": "M7.5 18.0002C8.32843 18.0002 9 18.6718 9 19.5002C9 20.3287 8.32843 21.0002 7.5 21.0002C6.67157 21.0002 6 20.3287 6 19.5002C6 18.6718 6.67157 18.0002 7.5 18.0002Z", "fill": "#1C274C"}], ["path", {"d": "M16.5 18.0003C17.3284 18.0003 18 18.6719 18 19.5003C18 20.3287 17.3284 21.0003 16.5 21.0003C15.6716 21.0003 15 20.3287 15 19.5003C15 18.6719 15.6716 18.0003 16.5 18.0003Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M3.04047 2.29266C2.6497 2.15527 2.22155 2.36068 2.08416 2.75145C1.94678 3.14221 2.15218 3.57036 2.54295 3.70775L2.80416 3.79958C3.47177 4.0343 3.91052 4.18985 4.23336 4.34826C4.53659 4.49704 4.67026 4.61747 4.75832 4.74634C4.84858 4.87842 4.91828 5.05984 4.95761 5.42319C4.99877 5.8034 4.99979 6.29862 4.99979 7.03856L4.99979 9.64024H20.724C21.0545 7.9827 21.2096 7.14067 20.7762 6.57733C20.3323 6.00024 18.8155 6.00024 17.1305 6.00024H6.49233C6.48564 5.72991 6.47295 5.48397 6.4489 5.26177C6.39517 4.76539 6.27875 4.31268 5.99677 3.90003C5.71259 3.48417 5.33474 3.21784 4.89411 3.00163C4.48203 2.79943 3.95839 2.61536 3.34187 2.39862L3.04047 2.29266Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M20.1999 12.1881L20.6997 9.76338L20.7242 9.64062H5C5 12.5822 5.06324 13.553 5.92964 14.4668C6.79604 15.3806 8.19049 15.3806 10.9794 15.3806H16.2823C17.8433 15.3806 18.6238 15.3806 19.1755 14.931C19.7273 14.4814 19.8848 13.717 20.1999 12.1881Z", "fill": "#1C274C"}], ["path", {"d": "M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z", "fill": "#1C274C"}], ["path", {"d": "M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M2.24872 2.29266C1.85795 2.15527 1.4298 2.36068 1.29242 2.75145C1.15503 3.14221 1.36044 3.57036 1.7512 3.70775L2.01241 3.79958C2.68002 4.0343 3.11877 4.18985 3.44162 4.34826C3.74484 4.49704 3.87851 4.61747 3.96657 4.74634C4.05683 4.87842 4.12653 5.05984 4.16587 5.42319C4.20702 5.8034 4.20804 6.29862 4.20804 7.03856V9.7602C4.20804 11.2127 4.22167 12.2601 4.35872 13.0603C4.50505 13.9146 4.79718 14.5263 5.34341 15.1024C5.93727 15.7288 6.69008 16.0015 7.58632 16.1285C8.44455 16.2502 9.5344 16.2502 10.8801 16.2502L16.2858 16.2502C17.0275 16.2502 17.6516 16.2502 18.1565 16.1884C18.6923 16.1229 19.1809 15.9796 19.6074 15.632C20.0339 15.2844 20.2729 14.8349 20.4452 14.3234C20.6077 13.8413 20.7336 13.2301 20.8833 12.5037L21.3923 10.0344L21.3932 10.0298L21.4037 9.97747C21.5683 9.15259 21.7069 8.4587 21.7413 7.90058C21.7775 7.31438 21.7108 6.73637 21.3289 6.23998C21.094 5.93456 20.7636 5.76166 20.4631 5.65607C20.1566 5.54838 19.8101 5.48608 19.4603 5.44698C18.7733 5.37018 17.9386 5.37019 17.12 5.3702L5.66784 5.3702C5.66456 5.33345 5.661 5.29731 5.65715 5.26177C5.60342 4.76539 5.48701 4.31268 5.20503 3.90003C4.92085 3.48417 4.543 3.21784 4.10237 3.00163C3.69028 2.79943 3.16665 2.61536 2.55012 2.39862L2.24872 2.29266ZM5.70803 6.8702H17.0888C17.9452 6.8702 18.6989 6.87121 19.2937 6.9377C19.5892 6.97074 19.8104 7.01664 19.9659 7.07125C20.0929 7.11589 20.1359 7.15234 20.1421 7.15762C20.1424 7.15783 20.142 7.15751 20.1421 7.15762C20.2034 7.23902 20.2702 7.38672 20.2442 7.80818C20.2168 8.25174 20.1003 8.844 19.9227 9.73393L19.9222 9.73615L19.4234 12.1563C19.2621 12.9391 19.1535 13.4595 19.0238 13.8444C18.9006 14.2097 18.785 14.3672 18.6598 14.4692C18.5346 14.5712 18.357 14.6527 17.9743 14.6996C17.5712 14.7489 17.0396 14.7502 16.2403 14.7502H10.9374C9.52065 14.7502 8.53759 14.7484 7.79692 14.6434C7.08211 14.542 6.70448 14.3578 6.43194 14.0704C6.11178 13.7327 5.93909 13.402 5.83719 12.8071C5.72603 12.1581 5.70804 11.2492 5.70804 9.7602L5.70803 6.8702Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M7.49996 21.7502C6.25732 21.7502 5.24996 20.7428 5.24996 19.5002C5.24996 18.2576 6.25732 17.2502 7.49996 17.2502C8.7426 17.2502 9.74996 18.2576 9.74996 19.5002C9.74996 20.7428 8.7426 21.7502 7.49996 21.7502ZM6.74996 19.5002C6.74996 19.9144 7.08575 20.2502 7.49996 20.2502C7.91417 20.2502 8.24996 19.9144 8.24996 19.5002C8.24996 19.086 7.91417 18.7502 7.49996 18.7502C7.08575 18.7502 6.74996 19.086 6.74996 19.5002Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M16.5 21.7503C15.2573 21.7503 14.25 20.7429 14.25 19.5003C14.25 18.2576 15.2573 17.2503 16.5 17.2503C17.7426 17.2503 18.75 18.2576 18.75 19.5003C18.75 20.7429 17.7426 21.7503 16.5 21.7503ZM15.75 19.5003C15.75 19.9145 16.0857 20.2503 16.5 20.2503C16.9142 20.2503 17.25 19.9145 17.25 19.5003C17.25 19.0861 16.9142 18.7503 16.5 18.7503C16.0857 18.7503 15.75 19.0861 15.75 19.5003Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = { ...attrs };
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity ?? attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, { key: index, ...computed });
+  });
+}
+
+export const CartLargeMinimalisticOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const CartLargeMinimalisticBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const CartLargeMinimalisticBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const CartLargeMinimalistic = CartLargeMinimalisticOutline;
+export default CartLargeMinimalistic;

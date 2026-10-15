@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment & Credentials
+.env
+.env.*
+!.env.example
+
+# Logs & Temporary Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Consumer Integration Test Build Artifacts
+tests/integration/react-consumer/node_modules/
+tests/integration/react-consumer/dist/
+tests/integration/laravel-consumer/vendor/
+tests/integration/laravel-consumer/storage/framework/views/*
+!tests/integration/laravel-consumer/storage/framework/views/.gitkeep
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Cache
+.cache/
+.eslintcache
+.phpunit.result.cache

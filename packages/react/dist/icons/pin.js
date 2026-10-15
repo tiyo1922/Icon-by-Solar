@@ -1,0 +1,76 @@
+import React from 'react';
+
+export const iconName = 'pin';
+export const category = 'Essentional, UI';
+export const nodes = {"bold": [["path", {"d": "M19.1835 7.80516L16.2188 4.83755C14.1921 2.8089 13.1788 1.79457 12.0904 2.03468C11.0021 2.2748 10.5086 3.62155 9.5217 6.31506L8.85373 8.1381C8.59063 8.85617 8.45908 9.2152 8.22239 9.49292C8.11619 9.61754 7.99536 9.72887 7.86251 9.82451C7.56644 10.0377 7.19811 10.1392 6.46145 10.3423C4.80107 10.8 3.97088 11.0289 3.65804 11.5721C3.5228 11.8069 3.45242 12.0735 3.45413 12.3446C3.45809 12.9715 4.06698 13.581 5.28476 14.8L6.69935 16.2163L2.22345 20.6964C1.92552 20.9946 1.92552 21.4782 2.22345 21.7764C2.52138 22.0746 3.00443 22.0746 3.30236 21.7764L7.77841 17.2961L9.24441 18.7635C10.4699 19.9902 11.0827 20.6036 11.7134 20.6045C11.9792 20.6049 12.2404 20.5358 12.4713 20.4041C13.0192 20.0914 13.2493 19.2551 13.7095 17.5825C13.9119 16.8472 14.013 16.4795 14.2254 16.1835C14.3184 16.054 14.4262 15.9358 14.5468 15.8314C14.8221 15.593 15.1788 15.459 15.8922 15.191L17.7362 14.4981C20.4 13.4973 21.7319 12.9969 21.9667 11.9115C22.2014 10.826 21.1954 9.81905 19.1835 7.80516Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"opacity": "0.5", "fillRule": "evenodd", "clipRule": "evenodd", "d": "M16.2188 4.83755L19.1835 7.80516C21.1954 9.81905 22.2014 10.826 21.9667 11.9115C21.7319 12.9969 20.4 13.4973 17.7362 14.4981L15.8922 15.191C15.1788 15.459 14.8221 15.593 14.5468 15.8314C14.4262 15.9358 14.3184 16.054 14.2254 16.1835C14.013 16.4795 13.9119 16.8472 13.7095 17.5825C13.2493 19.2551 13.0192 20.0914 12.4713 20.4041C12.2404 20.5358 11.9792 20.6049 11.7134 20.6045C11.0827 20.6036 10.4699 19.9902 9.24441 18.7635L7.77841 17.2961L6.69935 16.2163L5.28476 14.8C4.06698 13.581 3.45809 12.9715 3.45413 12.3446C3.45242 12.0735 3.5228 11.8069 3.65804 11.5721C3.97088 11.0289 4.80107 10.8 6.46145 10.3423C7.19811 10.1392 7.56644 10.0377 7.86251 9.82451C7.99536 9.72887 8.11619 9.61754 8.22239 9.49292C8.45908 9.2152 8.59063 8.85617 8.85373 8.1381L9.5217 6.31506C10.5086 3.62155 11.0021 2.2748 12.0904 2.03468C13.1788 1.79457 14.1921 2.8089 16.2188 4.83755Z", "fill": "#1C274C"}], ["path", {"d": "M3.30236 21.775L7.77841 17.2947L6.69935 16.2148L2.22345 20.695C1.92552 20.9932 1.92552 21.4767 2.22345 21.775C2.52138 22.0732 3.00443 22.0732 3.30236 21.775Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M16.4746 4.37519L19.6474 7.5512C20.6549 8.55966 21.4713 9.3769 21.9969 10.0861C22.5382 10.8166 22.8881 11.5858 22.6982 12.4638C22.5083 13.342 21.8718 13.8977 21.0771 14.3388C20.3055 14.767 19.2245 15.1732 17.8906 15.6743L15.9136 16.4171C15.1192 16.7156 14.9028 16.8086 14.742 16.9479C14.6611 17.0179 14.5887 17.0972 14.5263 17.1842C14.4021 17.3573 14.329 17.5817 14.1037 18.4005L14.0914 18.4454C13.8627 19.2767 13.6739 19.9628 13.4671 20.4779C13.2573 21.0008 12.974 21.496 12.465 21.7865C12.1114 21.9883 11.7112 22.0941 11.3041 22.0935C10.7179 22.0926 10.227 21.8019 9.78647 21.451C9.35243 21.1053 8.8497 20.6021 8.24065 19.9924L6.65338 18.4035L2.5306 22.5305C2.23786 22.8235 1.76298 22.8238 1.46994 22.531C1.1769 22.2383 1.17666 21.7634 1.4694 21.4703L5.59326 17.3423L4.05842 15.8059C3.45318 15.2001 2.9536 14.7 2.61002 14.2683C2.26127 13.8301 1.97215 13.3426 1.96848 12.7604C1.96586 12.3456 2.07354 11.9376 2.28053 11.5782C2.57116 11.0736 3.06341 10.7924 3.58296 10.5839C4.09477 10.3784 4.77597 10.1906 5.60112 9.96313L5.6457 9.95084C6.46601 9.72469 6.69053 9.65137 6.86346 9.52687C6.9526 9.46269 7.0337 9.38797 7.10499 9.30432C7.24338 9.14193 7.33502 8.92373 7.62798 8.12416L8.34447 6.1686C8.83874 4.81949 9.23907 3.72678 9.66362 2.94659C10.1005 2.14372 10.654 1.4986 11.5357 1.30408C12.4175 1.10953 13.1908 1.46205 13.9246 2.00679C14.6375 2.53608 15.4597 3.35912 16.4746 4.37519ZM13.0304 3.21115C12.4277 2.76371 12.1086 2.71376 11.8588 2.76885C11.609 2.82398 11.3402 3.00379 10.9812 3.66355C10.6161 4.33443 10.2525 5.32115 9.73087 6.74479L9.03642 8.6402C9.02304 8.6767 9.00987 8.71275 8.99686 8.74835C8.76267 9.38908 8.58179 9.884 8.24665 10.2773C8.09712 10.4527 7.92696 10.6095 7.73987 10.7442C7.3205 11.0461 6.81257 11.1857 6.15537 11.3664C6.11884 11.3764 6.08184 11.3866 6.04438 11.3969C5.16337 11.6398 4.56523 11.8059 4.1418 11.9759C3.71693 12.1464 3.615 12.2667 3.58038 12.3268C3.50616 12.4557 3.46751 12.602 3.46845 12.7509C3.46889 12.8206 3.49835 12.9757 3.78366 13.3342C4.06799 13.6914 4.50615 14.1317 5.15229 14.7785L9.26897 18.8993C9.91923 19.5503 10.3618 19.9917 10.721 20.2777C11.0814 20.5648 11.2369 20.5934 11.3064 20.5935C11.4519 20.5937 11.595 20.5559 11.7215 20.4837C11.7821 20.4491 11.9033 20.3471 12.0751 19.9192C12.2462 19.4928 12.4133 18.8901 12.6574 18.0026C12.6677 17.9652 12.6778 17.9283 12.6878 17.8919C12.8678 17.2357 13.0069 16.7288 13.3075 16.3098C13.4384 16.1273 13.5903 15.9609 13.76 15.8139C14.15 15.4763 14.642 15.2918 15.2786 15.0532C15.314 15.04 15.3498 15.0266 15.386 15.0129L17.3032 14.2926C18.7112 13.7636 19.6865 13.395 20.3491 13.0272C21.0001 12.6659 21.178 12.3972 21.2321 12.1468C21.2863 11.8963 21.2353 11.5778 20.7917 10.9792C20.3403 10.3699 19.6045 9.63062 18.541 8.56609L15.4588 5.48067C14.3876 4.40841 13.6433 3.6662 13.0304 3.21115Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = { ...attrs };
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity ?? attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, { key: index, ...computed });
+  });
+}
+
+export const PinOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const PinBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const PinBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const Pin = PinOutline;
+export default Pin;

@@ -1,0 +1,19 @@
+import React from 'react';
+import { IconNode } from '../types';
+
+export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export declare const iconName: 'square-forward';
+export declare const category: 'Messages, Conversation';
+export declare const nodes: Record<string, IconNode[]>;
+export declare const SquareForwardOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export declare const SquareForwardBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export declare const SquareForwardBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export declare const SquareForward: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
+export default SquareForward;

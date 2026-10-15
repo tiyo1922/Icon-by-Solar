@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'pills-3';
+const category = 'Medicine';
+const nodes = {"bold": [["path", {"d": "M9.6819 12.682C7.92454 14.4393 5.0753 14.4393 3.31794 12.682C2.63072 11.9948 2.21224 11.1406 2.0625 10.25H10.9373C10.7876 11.1406 10.3691 11.9948 9.6819 12.682Z", "fill": "#1C274C"}], ["path", {"d": "M10.9373 8.75H2.0625C2.21224 7.85943 2.63072 7.00524 3.31794 6.31802C5.0753 4.56066 7.92454 4.56066 9.6819 6.31802C10.3691 7.00524 10.7876 7.85943 10.9373 8.75Z", "fill": "#1C274C"}], ["path", {"d": "M14.7574 7.12132C15.9289 8.29289 17.8284 8.29289 19 7.12132C19.5858 6.53553 19.8787 5.76777 19.8787 5C19.8787 4.23223 19.5858 3.46447 19 2.87868C17.8284 1.70711 15.9289 1.70711 14.7574 2.87868C14.1716 3.46447 13.8787 4.23223 13.8787 5C13.8787 5.76777 14.1716 6.53553 14.7574 7.12132Z", "fill": "#1C274C"}], ["path", {"d": "M20.9052 12.0948C22.3649 13.5546 22.3649 15.9213 20.9052 17.381L19.8778 18.4084L19.8784 18.4054L19.1465 18.2644C19.1424 18.2635 19.132 18.2611 19.1177 18.2575C19.089 18.2503 19.0405 18.2371 18.9748 18.2161C18.8432 18.1741 18.6427 18.1007 18.3923 17.9801C17.8925 17.7392 17.1913 17.3087 16.4414 16.5589C15.6916 15.8091 15.261 15.1078 15.0201 14.6078C14.8994 14.3575 14.826 14.1569 14.784 14.0253C14.763 13.9595 14.7498 13.9111 14.7426 13.8823C14.7389 13.868 14.7368 13.8586 14.7359 13.8544L14.5946 13.1216L14.5916 13.1222L15.619 12.0948C17.0787 10.6351 19.4454 10.6351 20.9052 12.0948Z", "fill": "#1C274C"}], ["path", {"d": "M13.3262 14.3876C13.3347 14.4167 13.3443 14.4481 13.3551 14.4817C13.4167 14.6747 13.5155 14.9409 13.6689 15.2591C13.976 15.8964 14.5009 16.7397 15.3808 17.6195C16.2606 18.4994 17.1039 19.0243 17.7411 19.3314C18.0593 19.4847 18.3255 19.5834 18.5185 19.6451C18.552 19.6558 18.5833 19.6653 18.6123 19.6739L17.381 20.9052C15.9213 22.3649 13.5546 22.3649 12.0948 20.9052C10.6351 19.4454 10.6351 17.0787 12.0948 15.619L13.3262 14.3876Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"opacity": "0.5", "d": "M14.7574 7.12132C15.9289 8.29289 17.8284 8.29289 19 7.12132C19.5858 6.53553 19.8787 5.76777 19.8787 5C19.8787 4.23223 19.5858 3.46447 19 2.87868C17.8284 1.70711 15.9289 1.70711 14.7574 2.87868C14.1716 3.46447 13.8787 4.23223 13.8787 5C13.8787 5.76777 14.1716 6.53553 14.7574 7.12132Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M20.9052 17.381C22.3649 15.9213 22.3649 13.5546 20.9052 12.0948C19.4454 10.6351 17.0787 10.6351 15.619 12.0948L12.0948 15.619C10.6351 17.0787 10.6351 19.4454 12.0948 20.9052C13.5546 22.3649 15.9213 22.3649 17.381 20.9052L20.9052 17.381Z", "fill": "#1C274C"}], ["path", {"d": "M19.8779 18.4079L19.8784 18.4049L19.1465 18.2639C19.1424 18.263 19.132 18.2606 19.1177 18.257C19.089 18.2498 19.0405 18.2366 18.9748 18.2156C18.8432 18.1736 18.6427 18.1002 18.3923 17.9796C17.8925 17.7387 17.1913 17.3082 16.4415 16.5584C15.6916 15.8086 15.2611 15.1073 15.0201 14.6074C14.8994 14.357 14.826 14.1564 14.784 14.0248C14.763 13.959 14.7431 13.8827 14.7359 13.8539L14.5946 13.1211L14.5916 13.1217L13.3262 14.3871C13.3348 14.4162 13.3444 14.4476 13.3551 14.4812C13.4168 14.6742 13.5155 14.9404 13.6689 15.2586C13.976 15.8959 14.501 16.7392 15.3808 17.6191C16.2606 18.4989 17.1039 19.0238 17.7412 19.3309C18.0593 19.4842 18.3255 19.5829 18.5185 19.6446C18.552 19.6553 18.5833 19.6649 18.6123 19.6734L19.8779 18.4079Z", "fill": "#1C274C"}], ["path", {"d": "M9.72685 12.682C7.94471 14.4393 5.05529 14.4393 3.27315 12.682C2.57624 11.9948 2.15185 11.1406 2 10.25H11C10.8481 11.1406 10.4238 11.9948 9.72685 12.682Z", "fill": "#1C274C"}], ["path", {"d": "M11 8.75H2C2.15185 7.85943 2.57624 7.00524 3.27315 6.31802C5.05529 4.56066 7.94471 4.56066 9.72685 6.31802C10.4238 7.00524 10.8481 7.85943 11 8.75Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M19.5303 2.34835C18.0659 0.883883 15.6915 0.883883 14.227 2.34835C13.4949 3.08044 13.1287 4.04145 13.1287 5C13.1287 5.95855 13.4949 6.91956 14.227 7.65165C15.6915 9.11612 18.0659 9.11612 19.5303 7.65165C20.2624 6.91956 20.6287 5.95855 20.6287 5C20.6287 4.04145 20.2624 3.08044 19.5303 2.34835ZM15.2877 3.40901C16.1664 2.53033 17.591 2.53033 18.4697 3.40901C18.9092 3.8485 19.1287 4.42301 19.1287 5C19.1287 5.57699 18.9092 6.1515 18.4697 6.59099C17.591 7.46967 16.1664 7.46967 15.2877 6.59099C14.8482 6.1515 14.6287 5.57699 14.6287 5C14.6287 4.42301 14.8482 3.8485 15.2877 3.40901Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M10.2123 5.78745C8.16206 3.73719 4.83794 3.73719 2.78769 5.78745C1.76271 6.81242 1.25 8.15732 1.25 9.49976C1.25 10.8422 1.76271 12.1871 2.78769 13.2121C4.83794 15.2623 8.16206 15.2623 10.2123 13.2121C11.2373 12.1871 11.75 10.8422 11.75 9.49976C11.75 8.15732 11.2373 6.81242 10.2123 5.78745ZM3.84835 6.84811C5.31282 5.38364 7.68718 5.38364 9.15165 6.84811C9.69233 7.38879 10.0333 8.05265 10.1748 8.74976H2.82523C2.96669 8.05265 3.30767 7.38879 3.84835 6.84811ZM2.82523 10.2498H10.1748C10.0333 10.9469 9.69233 11.6107 9.15165 12.1514C7.68718 13.6159 5.31282 13.6159 3.84835 12.1514C3.30767 11.6107 2.96669 10.9469 2.82523 10.2498Z", "fill": "white"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M21.4355 11.5642C19.6829 9.81159 16.8413 9.81159 15.0886 11.5642L11.5645 15.0884C9.81184 16.841 9.81184 19.6826 11.5645 21.4353C13.3171 23.1879 16.1587 23.1879 17.9114 21.4353L21.4355 17.9111C23.1882 16.1585 23.1882 13.3169 21.4355 11.5642ZM16.1493 12.6249C17.3162 11.458 19.208 11.458 20.3749 12.6249C21.5417 13.7918 21.5417 15.6836 20.3749 16.8505L19.0011 18.2242C18.9926 18.2216 18.9838 18.2188 18.9747 18.2159C18.8431 18.1739 18.6426 18.1005 18.3922 17.9799C17.8924 17.739 17.1912 17.3085 16.4413 16.5587C15.6915 15.8088 15.2609 15.1075 15.02 14.6076C14.8993 14.3572 14.8259 14.1566 14.7839 14.0251C14.7809 14.0159 14.7782 14.0071 14.7755 13.9986L16.1493 12.6249ZM13.6196 15.1546C13.6353 15.1887 13.6517 15.2235 13.6688 15.2589C13.9759 15.8962 14.5008 16.7395 15.3807 17.6193C16.2605 18.4992 17.1038 19.024 17.741 19.3311C17.7764 19.3482 17.8111 19.3645 17.8451 19.3802L16.8507 20.3746C15.6839 21.5415 13.792 21.5415 12.6251 20.3746C11.4583 19.2078 11.4583 17.3159 12.6251 16.149L13.6196 15.1546Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const Pills3Outline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Pills3Bold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Pills3BoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Pills3 = Pills3Outline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  Pills3,
+  Pills3Outline,
+  Pills3Bold,
+  Pills3BoldDuotone,
+  default: Pills3
+};

@@ -1,0 +1,26 @@
+{
+  "name": "consumer/laravel-app",
+  "description": "Integration test consumer application for icon-by-solar/blade",
+  "type": "project",
+  "require": {
+    "php": "^8.2 || ^8.3 || ^8.4",
+    "illuminate/support": "^11.0",
+    "illuminate/view": "^11.0",
+    "illuminate/container": "^11.0",
+    "illuminate/config": "^11.0",
+    "illuminate/events": "^11.0",
+    "illuminate/filesystem": "^11.0",
+    "icon-by-solar/blade": "@dev"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../../packages/laravel-blade",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

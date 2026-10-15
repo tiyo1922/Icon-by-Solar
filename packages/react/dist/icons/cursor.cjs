@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'cursor';
+const category = 'Essentional, UI';
+const nodes = {"bold": [["path", {"d": "M16.5744 19.1999L12.6361 15.2616L11.4334 16.4643C10.2022 17.6955 9.58656 18.3111 8.92489 18.1658C8.26322 18.0204 7.96225 17.2035 7.3603 15.5696L5.3527 10.1205C4.15187 6.86106 3.55146 5.23136 4.39141 4.39141C5.23136 3.55146 6.86106 4.15187 10.1205 5.35271L15.5696 7.3603C17.2035 7.96225 18.0204 8.26322 18.1658 8.92489C18.3111 9.58656 17.6955 10.2022 16.4643 11.4334L15.2616 12.6361L19.1999 16.5744C19.6077 16.9821 19.8116 17.186 19.9058 17.4135C20.0314 17.7168 20.0314 18.0575 19.9058 18.3608C19.8116 18.5882 19.6077 18.7921 19.1999 19.1999C18.7921 19.6077 18.5882 19.8116 18.3608 19.9058C18.0575 20.0314 17.7168 20.0314 17.4135 19.9058C17.186 19.8116 16.9821 19.6077 16.5744 19.1999Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.4334 16.4643L12.6361 15.2616L15.2616 12.6361L16.4643 11.4334C17.6955 10.2022 18.3111 9.58656 18.1658 8.92489C18.0204 8.26322 17.2035 7.96225 15.5696 7.3603L10.1205 5.35271C6.86106 4.15187 5.23136 3.55146 4.39141 4.39141C3.55146 5.23136 4.15187 6.86106 5.3527 10.1205L7.3603 15.5696C7.96225 17.2035 8.26322 18.0204 8.92489 18.1658C9.58656 18.3111 10.2022 17.6955 11.4334 16.4643Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M12.6357 15.2623L16.574 19.2006C16.9818 19.6083 17.1857 19.8122 17.4132 19.9064C17.7164 20.0321 18.0572 20.0321 18.3605 19.9064C18.5879 19.8122 18.7918 19.6083 19.1996 19.2006C19.6074 18.7928 19.8113 18.5889 19.9055 18.3614C20.0311 18.0582 20.0311 17.7174 19.9055 17.4141C19.8113 17.1867 19.6074 16.9828 19.1996 16.575L15.2613 12.6367L12.6357 15.2623Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M10.3172 4.62547L15.8843 6.67653C16.654 6.96003 17.31 7.20169 17.7857 7.4617C18.2841 7.7341 18.7565 8.11738 18.8984 8.76361C19.0403 9.40983 18.772 9.9558 18.4337 10.412C18.1108 10.8474 17.6164 11.3417 17.0364 11.9216L16.3224 12.6357L19.7466 16.0599C19.9366 16.2499 20.105 16.4183 20.2357 16.5682C20.3746 16.7274 20.5075 16.9057 20.5988 17.1261C20.8005 17.6131 20.8005 18.1604 20.5988 18.6474C20.5075 18.8677 20.3746 19.0461 20.2357 19.2053C20.105 19.3552 19.9366 19.5236 19.7466 19.7135L19.714 19.7461C19.5241 19.9361 19.3557 20.1045 19.2058 20.2352C19.0466 20.3741 18.8682 20.507 18.6479 20.5983C18.1608 20.8 17.6136 20.8 17.1266 20.5983C16.9062 20.507 16.7279 20.3741 16.5686 20.2352C16.4188 20.1045 16.2504 19.9361 16.0604 19.7461L12.6362 16.3219L11.9221 17.0359C11.3422 17.6159 10.8479 18.1103 10.4124 18.4332C9.95629 18.7716 9.41032 19.0399 8.76409 18.8979C8.11787 18.756 7.73459 18.2836 7.46219 17.7852C7.20218 17.3096 6.96052 16.6535 6.67702 15.8839L4.62596 10.3167C4.04508 8.7401 3.57969 7.47697 3.37319 6.50395C3.16699 5.53232 3.15517 4.56668 3.86117 3.86068C4.56717 3.15469 5.53281 3.1665 6.50444 3.37271C7.47746 3.57921 8.74059 4.04459 10.3172 4.62547ZM6.19303 4.84003C5.32497 4.6558 5.05579 4.78739 4.92183 4.92134C4.78787 5.0553 4.65629 5.32448 4.84052 6.19254C5.02172 7.04636 5.44734 8.20721 6.05656 9.86079L8.06415 15.31C8.37375 16.1503 8.57822 16.6996 8.7784 17.0658C8.96614 17.4093 9.06401 17.4285 9.08413 17.4325C9.0848 17.4326 9.08538 17.4327 9.08588 17.4328C9.08638 17.4329 9.08696 17.4331 9.08762 17.4332C9.10755 17.4381 9.20448 17.4616 9.51887 17.2284C9.85409 16.9798 10.2699 16.5668 10.9032 15.9335L12.1058 14.7309C12.3987 14.438 12.8736 14.438 13.1665 14.7309L17.1048 18.6692C17.3159 18.8803 17.448 19.0118 17.5546 19.1048C17.6562 19.1934 17.6935 19.2095 17.7006 19.2125C17.8201 19.262 17.9544 19.262 18.0739 19.2125C18.081 19.2095 18.1183 19.1934 18.2198 19.1048C18.3264 19.0118 18.4585 18.8803 18.6697 18.6692C18.8808 18.458 19.0123 18.3259 19.1053 18.2193C19.1939 18.1178 19.21 18.0805 19.213 18.0734C19.2625 17.9539 19.2625 17.8196 19.213 17.7001C19.21 17.693 19.1939 17.6557 19.1053 17.5542C19.0123 17.4475 18.8808 17.3154 18.6697 17.1043L14.7314 13.166C14.4385 12.8731 14.4385 12.3982 14.7314 12.1053L15.934 10.9027C16.5673 10.2694 16.9803 9.8536 17.2289 9.51838C17.4621 9.204 17.4386 9.10706 17.4337 9.08713C17.4336 9.08647 17.4334 9.08589 17.4333 9.08539C17.4332 9.08489 17.4331 9.08431 17.433 9.08364C17.429 9.06352 17.4097 8.96565 17.0663 8.77791C16.7001 8.57773 16.1508 8.37326 15.3105 8.06366L9.86128 6.05607C8.2077 5.44685 7.04685 5.02123 6.19303 4.84003Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const CursorOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const CursorBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const CursorBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Cursor = CursorOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  Cursor,
+  CursorOutline,
+  CursorBold,
+  CursorBoldDuotone,
+  default: Cursor
+};

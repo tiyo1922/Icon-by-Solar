@@ -1,0 +1,76 @@
+import React from 'react';
+
+export const iconName = 'wireless-charge';
+export const category = 'Electronic, Devices';
+export const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M12.0646 17.9997C16.4827 18.0354 20.0354 14.4827 19.9997 10.0646C19.9641 5.64642 16.3536 2.03592 11.9354 2.00027C7.51731 1.96461 3.96461 5.51731 4.00027 9.93545C4.03592 14.3536 7.64642 17.9641 12.0646 17.9997ZM13.3739 6.4569C13.6739 6.74256 13.6854 7.2173 13.3998 7.51724L11.7495 9.25H13.9995C14.2996 9.25 14.5707 9.4288 14.6889 9.70456C14.8071 9.98032 14.7495 10.3 14.5426 10.5172L11.6855 13.5172C11.3998 13.8172 10.9251 13.8288 10.6251 13.5431C10.3252 13.2574 10.3136 12.7827 10.5993 12.4828L12.2495 10.75H9.99953C9.69951 10.75 9.42836 10.5712 9.31017 10.2954C9.19199 10.0197 9.24952 9.70002 9.45643 9.48276L12.3136 6.48276C12.5992 6.18281 13.074 6.17123 13.3739 6.4569Z", "fill": "#1C274C"}], ["path", {"d": "M11.1173 20.9242C11.1584 20.9412 11.2019 20.9544 11.25 20.9647V22C11.25 22.4142 11.5858 22.75 12 22.75C12.4142 22.75 12.75 22.4142 12.75 22V20.9647C12.7981 20.9544 12.8416 20.9412 12.8827 20.9242C13.1277 20.8227 13.3224 20.628 13.4239 20.383C13.5 20.1992 13.5 19.9663 13.5 19.5003V18.8964C13.0303 18.9685 12.5481 19.004 12.0565 19C11.526 18.9958 11.0059 18.9457 10.5 18.8535V19.5003C10.5 19.9663 10.5 20.1992 10.5761 20.383C10.6776 20.628 10.8723 20.8227 11.1173 20.9242Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"d": "M11.1173 20.9223C11.1584 20.9393 11.2019 20.9525 11.25 20.9627V21.998C11.25 22.4123 11.5858 22.748 12 22.748C12.4142 22.748 12.75 22.4123 12.75 21.998V20.9627C12.7981 20.9525 12.8416 20.9393 12.8827 20.9223C13.1277 20.8208 13.3224 20.6261 13.4239 20.3811C13.5 20.1973 13.5 19.9643 13.5 19.4984V18.8945C13.0303 18.9665 12.5481 19.002 12.0565 18.9981C11.526 18.9938 11.0059 18.9437 10.5 18.8516V19.4984C10.5 19.9643 10.5 20.1973 10.5761 20.3811C10.6776 20.6261 10.8723 20.8208 11.1173 20.9223Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M20.9997 10.0726C21.0398 15.043 17.043 19.0398 12.0726 18.9997C7.10223 18.9596 3.04041 14.8978 3.0003 9.92738C2.96019 4.95698 6.95698 0.96019 11.9274 1.0003C16.8978 1.04041 20.9596 5.10223 20.9997 10.0726Z", "fill": "#1C274C"}], ["path", {"d": "M13.3744 6.4569C13.6743 6.74256 13.6859 7.2173 13.4003 7.51724L11.75 9.25H14C14.3 9.25 14.5712 9.4288 14.6894 9.70456C14.8076 9.98032 14.75 10.3 14.5431 10.5172L11.686 13.5172C11.4003 13.8172 10.9256 13.8288 10.6256 13.5431C10.3257 13.2574 10.3141 12.7827 10.5998 12.4828L12.25 10.75H10C9.7 10.75 9.42884 10.5712 9.31066 10.2954C9.19248 10.0197 9.25 9.70002 9.45691 9.48276L12.3141 6.48276C12.5997 6.18281 13.0745 6.17123 13.3744 6.4569Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.9294 2.75024C7.9302 2.71797 4.71797 5.9302 4.75024 9.92939C4.78259 13.938 8.06196 17.2174 12.0706 17.2498C16.0698 17.282 19.282 14.0698 19.2498 10.0706C19.2174 6.06196 15.938 2.78259 11.9294 2.75024ZM3.25029 9.9415C3.21126 5.10443 7.10443 1.21126 11.9415 1.25029C16.7691 1.28925 20.7108 5.23089 20.7497 10.0585C20.7826 14.1381 18.0185 17.5463 14.25 18.4902V19.5218C14.25 19.736 14.25 19.9329 14.2387 20.0982C14.2266 20.2759 14.199 20.4712 14.1168 20.6697C13.9392 21.0985 13.5985 21.4392 13.1697 21.6168C13.0263 21.6762 12.8846 21.7071 12.75 21.7242V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V21.7242C11.1154 21.7071 10.9737 21.6762 10.8303 21.6168C10.4015 21.4392 10.0608 21.0985 9.88321 20.6697C9.80099 20.4712 9.77338 20.2759 9.76126 20.0982C9.74998 19.9329 9.74999 19.736 9.75 19.5218L9.75 18.4239C6.03406 17.383 3.28281 13.9708 3.25029 9.9415ZM11.25 18.7064V19.5C11.25 19.7432 11.2504 19.8881 11.2578 19.9961C11.2623 20.0629 11.2684 20.0913 11.2703 20.0987C11.2956 20.1575 11.3425 20.2044 11.4013 20.2297C11.4087 20.2316 11.4371 20.2377 11.5039 20.2422C11.6119 20.2496 11.7568 20.25 12 20.25C12.2432 20.25 12.3881 20.2496 12.4961 20.2422C12.5629 20.2377 12.5913 20.2316 12.5987 20.2297C12.6575 20.2044 12.7044 20.1575 12.7297 20.0987C12.7316 20.0913 12.7377 20.0629 12.7422 19.9961C12.7496 19.8881 12.75 19.7432 12.75 19.5V18.7284C12.5219 18.7444 12.2913 18.7516 12.0585 18.7497C11.786 18.7475 11.5163 18.7329 11.25 18.7064ZM13.3741 6.4569C13.6741 6.74256 13.6856 7.21729 13.4 7.51724L11.7497 9.25H13.9997C14.2997 9.25 14.5709 9.4288 14.6891 9.70456C14.8073 9.98032 14.7497 10.3 14.5428 10.5172L11.6857 13.5172C11.4 13.8172 10.9253 13.8288 10.6253 13.5431C10.3254 13.2574 10.3138 12.7827 10.5995 12.4828L12.2497 10.75H9.99972C9.6997 10.75 9.42855 10.5712 9.31036 10.2954C9.19218 10.0197 9.24971 9.70002 9.45662 9.48276L12.3138 6.48276C12.5994 6.18281 13.0742 6.17123 13.3741 6.4569Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = { ...attrs };
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity ?? attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, { key: index, ...computed });
+  });
+}
+
+export const WirelessChargeOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const WirelessChargeBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const WirelessChargeBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const WirelessCharge = WirelessChargeOutline;
+export default WirelessCharge;

@@ -1,0 +1,76 @@
+import React from 'react';
+
+export const iconName = 'test-tube-minimalistic';
+export const category = 'Medicine';
+export const nodes = {"bold": [["path", {"d": "M14.8692 2.22379C14.5731 1.92633 14.0919 1.92527 13.7944 2.22141C13.497 2.51756 13.4959 2.99876 13.7921 3.29621L14.4855 3.9927L7.53667 10.9723L8.22692 11.0493C9.61873 11.2047 10.7136 12.3074 10.8676 13.6994C10.9262 14.2289 11.2627 14.6842 11.7462 14.8941L13.7129 15.7105L19.9323 9.46362L20.7014 10.2362C20.9976 10.5336 21.4788 10.5347 21.7762 10.2386C22.0737 9.94242 22.0747 9.46122 21.7786 9.16377L14.8692 2.22379Z", "fill": "#1C274C"}], ["path", {"d": "M4.12806 14.396L6.16625 12.3488L8.05833 12.56C8.73918 12.636 9.2805 13.1767 9.35681 13.8665C9.4754 14.9386 10.159 15.8658 11.1492 16.292L12.5536 16.875L9.57484 19.8669C8.07075 21.3777 5.63215 21.3777 4.12806 19.8669C2.62398 18.3562 2.62398 15.9068 4.12806 14.396Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"d": "M3.18744 15.0481C1.60418 16.6383 1.60418 19.2167 3.18744 20.8069C4.7707 22.3972 7.33768 22.3972 8.92094 20.8069L12.6667 17.0446L10.8946 16.309C10.1177 15.9746 9.57994 15.2465 9.4866 14.4027C9.36539 13.307 8.50424 12.4421 7.41335 12.3203H5.90317L3.18744 15.0481Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M13.362 2.23307C13.6751 1.92134 14.1817 1.92246 14.4934 2.23556L21.7665 9.54081C22.0782 9.85392 22.0771 10.3605 21.764 10.6722C21.4509 10.9839 20.9443 10.9828 20.6326 10.6697L13.3595 3.36444C13.0478 3.05133 13.0489 2.5448 13.362 2.23307Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M14.0901 4.09766L3.18744 15.0485C1.60419 16.6388 1.60419 19.2171 3.18744 20.8074C4.7707 22.3977 7.33768 22.3977 8.92094 20.8074L19.8236 9.85652L14.0901 4.09766Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M13.6523 2.4685C13.9459 2.17625 14.4208 2.1773 14.713 2.47084L21.5315 9.31951C21.8237 9.61305 21.8227 10.0879 21.5292 10.3802C21.2356 10.6724 20.7607 10.6714 20.4685 10.3778L20.2387 10.147L10.0199 20.411C8.24241 22.1963 5.35919 22.1963 3.58173 20.411C1.80609 18.6275 1.80609 15.7372 3.58173 13.9538L6.26423 11.2594C6.26735 11.2562 6.27051 11.253 6.2737 11.2499L13.8052 3.68504L13.65 3.52916C13.3578 3.23562 13.3588 2.76075 13.6523 2.4685ZM14.8635 4.74805L8.41892 11.2212C9.6666 11.4744 10.6219 12.51 10.7641 13.7955C10.822 14.318 11.154 14.7673 11.6312 14.9744L12.8232 15.4692L19.1803 9.08398L14.8635 4.74805ZM11.6791 16.6184L11.0421 16.354C10.0649 15.9333 9.39027 15.0183 9.27324 13.9604C9.19793 13.2796 8.66373 12.746 7.99183 12.671L7.0771 12.5689L4.64473 15.0121C3.45176 16.2103 3.45176 18.1544 4.64473 19.3527C5.83588 20.5491 7.76573 20.5491 8.95688 19.3527L11.6791 16.6184Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = { ...attrs };
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity ?? attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, { key: index, ...computed });
+  });
+}
+
+export const TestTubeMinimalisticOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const TestTubeMinimalisticBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const TestTubeMinimalisticBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', {
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation',
+    ...rest
+  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+export const TestTubeMinimalistic = TestTubeMinimalisticOutline;
+export default TestTubeMinimalistic;

@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'bill';
+const category = 'Money';
+const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M19.875 20.5917C19.2334 20.0473 18.2666 20.0473 17.625 20.5917C16.9834 21.1361 16.0166 21.1361 15.375 20.5917C14.7334 20.0473 13.7666 20.0473 13.125 20.5917C12.4834 21.1361 11.5166 21.1361 10.875 20.5917C10.2334 20.0473 9.26659 20.0473 8.625 20.5917C7.98341 21.1361 7.01659 21.1361 6.375 20.5917C5.73341 20.0473 4.76659 20.0473 4.125 20.5917C3.68909 20.9616 3 20.6662 3 20.1094V3.89059C3 3.33383 3.68909 3.03842 4.125 3.40832C4.76659 3.95274 5.73341 3.95274 6.375 3.40832C7.01659 2.86389 7.98341 2.86389 8.625 3.40832C9.26659 3.95274 10.2334 3.95274 10.875 3.40832C11.5166 2.86389 12.4834 2.86389 13.125 3.40832C13.7666 3.95274 14.7334 3.95274 15.375 3.40832C16.0166 2.86389 16.9834 2.86389 17.625 3.40832C18.2666 3.95274 19.2334 3.95274 19.875 3.40832C20.3109 3.03842 21 3.33383 21 3.89059V20.1094C21 20.6662 20.3109 20.9616 19.875 20.5917ZM6.75 12C6.75 11.5858 7.08579 11.25 7.5 11.25H16.5C16.9142 11.25 17.25 11.5858 17.25 12C17.25 12.4142 16.9142 12.75 16.5 12.75H7.5C7.08579 12.75 6.75 12.4142 6.75 12ZM7.5 7.75C7.08579 7.75 6.75 8.08579 6.75 8.5C6.75 8.91421 7.08579 9.25 7.5 9.25H16.5C16.9142 9.25 17.25 8.91421 17.25 8.5C17.25 8.08579 16.9142 7.75 16.5 7.75H7.5ZM6.75 15.5C6.75 15.0858 7.08579 14.75 7.5 14.75H16.5C16.9142 14.75 17.25 15.0858 17.25 15.5C17.25 15.9142 16.9142 16.25 16.5 16.25H7.5C7.08579 16.25 6.75 15.9142 6.75 15.5Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"opacity": "0.5", "d": "M17.625 20.5917C18.2666 20.0473 19.2334 20.0473 19.875 20.5917C20.3109 20.9616 21 20.6662 21 20.1094V3.89059C21 3.33383 20.3109 3.03842 19.875 3.40832C19.2334 3.95274 18.2666 3.95274 17.625 3.40832C16.9834 2.86389 16.0166 2.86389 15.375 3.40832C14.7334 3.95274 13.7666 3.95274 13.125 3.40832C12.4834 2.86389 11.5166 2.86389 10.875 3.40832C10.2334 3.95274 9.26659 3.95274 8.625 3.40832C7.98341 2.86389 7.01659 2.86389 6.375 3.40832C5.73341 3.95274 4.76659 3.95274 4.125 3.40832C3.68909 3.03842 3 3.33383 3 3.89059V20.1094C3 20.6662 3.68909 20.9616 4.125 20.5917C4.76659 20.0473 5.73341 20.0473 6.375 20.5917C7.01659 21.1361 7.98341 21.1361 8.625 20.5917C9.26659 20.0473 10.2334 20.0473 10.875 20.5917C11.5166 21.1361 12.4834 21.1361 13.125 20.5917C13.7666 20.0473 14.7334 20.0473 15.375 20.5917C16.0166 21.1361 16.9834 21.1361 17.625 20.5917Z", "fill": "#1C274C"}], ["path", {"d": "M6.75 15.5C6.75 15.0858 7.08579 14.75 7.5 14.75H16.5C16.9142 14.75 17.25 15.0858 17.25 15.5C17.25 15.9142 16.9142 16.25 16.5 16.25H7.5C7.08579 16.25 6.75 15.9142 6.75 15.5Z", "fill": "#1C274C"}], ["path", {"d": "M6.75 12C6.75 11.5858 7.08579 11.25 7.5 11.25H16.5C16.9142 11.25 17.25 11.5858 17.25 12C17.25 12.4142 16.9142 12.75 16.5 12.75H7.5C7.08579 12.75 6.75 12.4142 6.75 12Z", "fill": "#1C274C"}], ["path", {"d": "M6.75 8.5C6.75 8.08579 7.08579 7.75 7.5 7.75H16.5C16.9142 7.75 17.25 8.08579 17.25 8.5C17.25 8.91421 16.9142 9.25 16.5 9.25H7.5C7.08579 9.25 6.75 8.91421 6.75 8.5Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M8.12673 3.55859C7.76931 3.24089 7.23069 3.24089 6.87327 3.55859C5.98775 4.34572 4.67284 4.37993 3.75 3.66121V20.335C4.67284 19.6163 5.98775 19.6505 6.87327 20.4377C7.23069 20.7554 7.76931 20.7554 8.12673 20.4377C9.05248 19.6148 10.4475 19.6148 11.3733 20.4377C11.7307 20.7554 12.2693 20.7554 12.6267 20.4377C13.5525 19.6148 14.9475 19.6148 15.8733 20.4377C16.2307 20.7554 16.7693 20.7554 17.1267 20.4377C18.0122 19.6505 19.3272 19.6163 20.25 20.335V3.66121C19.3272 4.37993 18.0122 4.34572 17.1267 3.55859C16.7693 3.24089 16.2307 3.24089 15.8733 3.55859C14.9475 4.38148 13.5525 4.38148 12.6267 3.55859C12.2693 3.24089 11.7307 3.24089 11.3733 3.55859C10.4475 4.38148 9.05248 4.38148 8.12673 3.55859ZM5.87673 2.43748C6.80248 1.61459 8.19752 1.61459 9.12327 2.43748C9.48069 2.75519 10.0193 2.75519 10.3767 2.43748C11.3025 1.61459 12.6975 1.61459 13.6233 2.43748C13.9807 2.75519 14.5193 2.75519 14.8767 2.43748C15.8025 1.61459 17.1975 1.61459 18.1233 2.43748C18.4807 2.75519 19.0193 2.75519 19.3767 2.43748C20.2963 1.62007 21.75 2.27287 21.75 3.50324V20.493C21.75 21.7234 20.2963 22.3762 19.3767 21.5588C19.0193 21.2411 18.4807 21.2411 18.1233 21.5588C17.1975 22.3817 15.8025 22.3817 14.8767 21.5588C14.5193 21.2411 13.9807 21.2411 13.6233 21.5588C12.6975 22.3817 11.3025 22.3817 10.3767 21.5588C10.0193 21.2411 9.48069 21.2411 9.12327 21.5588C8.19752 22.3817 6.80248 22.3817 5.87673 21.5588C5.51931 21.2411 4.98069 21.2411 4.62327 21.5588C3.70369 22.3762 2.25 21.7234 2.25 20.493V3.50324C2.25 2.27287 3.70369 1.62007 4.62327 2.43748C4.98069 2.75519 5.51931 2.75519 5.87673 2.43748ZM6.75 8.49821C6.75 8.084 7.08579 7.74821 7.5 7.74821H16.5C16.9142 7.74821 17.25 8.084 17.25 8.49821C17.25 8.91243 16.9142 9.24821 16.5 9.24821H7.5C7.08579 9.24821 6.75 8.91243 6.75 8.49821ZM6.75 11.9982C6.75 11.584 7.08579 11.2482 7.5 11.2482H16.5C16.9142 11.2482 17.25 11.584 17.25 11.9982C17.25 12.4124 16.9142 12.7482 16.5 12.7482H7.5C7.08579 12.7482 6.75 12.4124 6.75 11.9982ZM6.75 15.4982C6.75 15.084 7.08579 14.7482 7.5 14.7482H16.5C16.9142 14.7482 17.25 15.084 17.25 15.4982C17.25 15.9124 16.9142 16.2482 16.5 16.2482H7.5C7.08579 16.2482 6.75 15.9124 6.75 15.4982Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const BillOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const BillBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const BillBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Bill = BillOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  Bill,
+  BillOutline,
+  BillBold,
+  BillBoldDuotone,
+  default: Bill
+};

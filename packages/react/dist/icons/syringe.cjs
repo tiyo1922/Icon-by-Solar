@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'syringe';
+const category = 'Medicine';
+const nodes = {"bold": [["path", {"d": "M17.7819 3.22595C17.4807 2.92468 16.9922 2.92468 16.691 3.22595C16.3897 3.52721 16.3897 4.01565 16.691 4.31692L17.6415 5.26743L15.9427 6.96621L15.0752 6.09871C14.3 5.32348 13.9124 4.93586 13.4717 4.77543C13.0042 4.6053 12.4918 4.6053 12.0244 4.77543C11.5836 4.93586 11.196 5.32348 10.4208 6.09871L10.3013 6.21826L17.7817 13.6988L17.9012 13.5792C18.6764 12.804 19.064 12.4164 19.2244 11.9756C19.3945 11.5082 19.3945 10.9958 19.2244 10.5283C19.064 10.0875 18.6764 9.69992 17.9012 8.9247L17.0337 8.05718L18.7324 6.3584L19.6831 7.30914C19.9844 7.6104 20.4728 7.6104 20.7741 7.30914C21.0753 7.00787 21.0753 6.51943 20.7741 6.21817L17.7819 3.22595Z", "fill": "#1C274C"}], ["path", {"d": "M6.01572 10.5039L9.21036 7.30919L16.6907 14.7897L15.5376 15.9429L12.5698 12.9751C12.2686 12.6738 11.7801 12.6738 11.4789 12.9751C11.1776 13.2763 11.1776 13.7648 11.4789 14.066L14.4466 17.0339L13.8545 17.626L12.1616 15.933C11.8603 15.6318 11.3719 15.6318 11.0706 15.933C10.7694 16.2343 10.7694 16.7227 11.0706 17.024L12.6919 18.6453C10.8462 19.8795 8.39556 19.8278 6.60052 18.4903L4.31688 20.7741C4.01563 21.0753 3.5272 21.0753 3.22594 20.7741C2.92469 20.4728 2.92469 19.9843 3.22594 19.6831L5.50962 17.3993C3.9667 15.3281 4.1354 12.3843 6.01572 10.5039Z", "fill": "#1C274C"}]], "bold-duotone": [["g", {"opacity": "0.5"}], ["path", {"d": "M17.8044 9.10999L14.8901 6.19562C14.0906 5.39614 13.6908 4.9964 13.2363 4.83096C12.7542 4.6555 12.2258 4.6555 11.7437 4.83096C11.2891 4.9964 10.8894 5.39614 10.0899 6.19562L5.54694 10.7386C3.41664 12.8689 3.41664 16.3228 5.54694 18.4531C7.67724 20.5834 11.1311 20.5834 13.2614 18.4531L17.8044 13.9101C18.6039 13.1107 19.0036 12.7109 19.1691 12.2563C19.3445 11.7743 19.3445 11.2458 19.1691 10.7638C19.0036 10.3092 18.6039 9.90946 17.8044 9.10999Z", "fill": "#1C274C"}], ["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M16.5561 3.23301C16.8667 2.92233 17.3705 2.92233 17.6811 3.23301L20.7669 6.31881C21.0776 6.6295 21.0776 7.13322 20.7669 7.4439C20.4563 7.75459 19.9525 7.75459 19.6418 7.4439L16.5561 4.3581C16.2454 4.04742 16.2454 3.5437 16.5561 3.23301Z", "fill": "#1C274C"}], ["path", {"d": "M17.7292 13.986L10.0147 6.27148L8.88965 7.39657L16.6041 15.1111L17.7292 13.986Z", "fill": "#1C274C"}], ["path", {"d": "M5.02573 17.8496C5.18255 18.0601 5.35652 18.2619 5.54763 18.453C5.73867 18.644 5.94037 18.8179 6.15079 18.9747L4.35812 20.7673C4.04745 21.078 3.54373 21.078 3.23303 20.7673C2.92234 20.4567 2.92232 19.9529 3.23299 19.6422L5.02573 17.8496Z", "fill": "#1C274C"}], ["path", {"d": "M16.9093 8.21468L15.7842 7.08959L17.5359 5.33789L18.661 6.46298L16.9093 8.21468Z", "fill": "#1C274C"}], ["path", {"d": "M15.3671 16.3483C15.3671 16.3483 15.3671 16.3483 15.3671 16.3483L12.3065 13.2877C11.9958 12.977 11.4921 12.977 11.1814 13.2877C10.8707 13.5984 10.8707 14.1021 11.1814 14.4128L14.242 17.4734C14.242 17.4734 14.242 17.4734 14.242 17.4734L15.3671 16.3483Z", "fill": "#1C274C"}], ["path", {"d": "M13.6314 18.0841C13.6314 18.0841 13.6314 18.0841 13.6314 18.0841L11.8854 16.3382C11.5748 16.0275 11.071 16.0275 10.7604 16.3382C10.4497 16.6489 10.4497 17.1526 10.7604 17.4633L12.4323 19.1353C12.7251 18.9395 13.0032 18.7123 13.2617 18.4538L13.6314 18.0841Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M16.5606 3.46967C16.8535 3.17678 17.3283 3.17678 17.6212 3.46967L20.5303 6.37876C20.8232 6.67165 20.8232 7.14653 20.5303 7.43942C20.2374 7.73231 19.7626 7.73231 19.4697 7.43942L18.5455 6.51521L17.4243 7.63636L18.2877 8.49973C18.6475 8.85959 18.9471 9.15914 19.1736 9.42281C19.4095 9.69728 19.6068 9.97792 19.7287 10.3127C19.9544 10.9328 19.9544 11.6126 19.7287 12.2328C19.6068 12.5675 19.4095 12.8482 19.1736 13.1226C18.9471 13.3863 18.6475 13.6859 18.2877 14.0457L17.6219 14.7115C17.6217 14.7117 17.6221 14.7113 17.6219 14.7115C17.6217 14.7117 17.6208 14.7126 17.6206 14.7128L15.4403 16.8931C15.44 16.8934 15.4397 16.8937 15.4394 16.894C15.4391 16.8942 15.4389 16.8945 15.4386 16.8948L13.9849 18.3485C13.94 18.3934 13.8946 18.4374 13.8487 18.4805C13.8343 18.4976 13.8191 18.5142 13.8031 18.5303C13.769 18.5644 13.7324 18.5945 13.694 18.6207C11.5677 20.4809 8.42346 20.5558 6.21525 18.8454L4.53033 20.5303C4.23744 20.8232 3.76256 20.8232 3.46967 20.5303C3.17678 20.2374 3.17678 19.7626 3.46967 19.4697L5.15459 17.7847C3.36431 15.4735 3.52995 12.1367 5.65149 10.0151L9.95429 5.71232C10.3141 5.35245 10.6137 5.0529 10.8774 4.82636C11.1518 4.59053 11.4325 4.39317 11.7672 4.27134C12.3874 4.04562 13.0672 4.04562 13.6873 4.27134C14.0221 4.39317 14.3027 4.59053 14.5772 4.82636C14.8409 5.05291 15.1404 5.35247 15.5003 5.71235L16.3636 6.5757L17.4848 5.45455L16.5606 4.53033C16.2677 4.23744 16.2677 3.76256 16.5606 3.46967ZM14.4596 6.79296C14.0746 6.40802 13.8151 6.1492 13.5997 5.96408C13.3901 5.78407 13.2681 5.71501 13.1743 5.68088C12.8855 5.57578 12.569 5.57578 12.2802 5.68088C12.1864 5.71501 12.0644 5.78407 11.8549 5.96408C11.6394 6.1492 11.3799 6.40802 10.995 6.79296L10.8788 6.90909L17.0909 13.1212L17.207 13.005C17.592 12.6201 17.8508 12.3606 18.0359 12.1451C18.2159 11.9356 18.285 11.8136 18.3191 11.7198C18.4242 11.431 18.4242 11.1145 18.3191 10.8257C18.285 10.7319 18.2159 10.6099 18.0359 10.4003C17.8508 10.1849 17.592 9.92536 17.207 9.54043L14.4596 6.79296ZM16.0302 14.1818L9.81818 7.96975L6.71215 11.0758C4.99673 12.7912 4.99673 15.5724 6.71215 17.2879C8.18252 18.7582 10.436 18.9683 12.13 17.918L11.0965 16.8844C10.8036 16.5915 10.8036 16.1166 11.0965 15.8237C11.3894 15.5308 11.8642 15.5308 12.1571 15.8237L13.2727 16.9393L13.8484 16.3636L11.4934 14.0086C11.2005 13.7157 11.2005 13.2408 11.4934 12.9479C11.7863 12.655 12.2612 12.655 12.5541 12.9479L14.9091 15.303L16.0302 14.1818Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const SyringeOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const SyringeBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const SyringeBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const Syringe = SyringeOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  Syringe,
+  SyringeOutline,
+  SyringeBold,
+  SyringeBoldDuotone,
+  default: Syringe
+};

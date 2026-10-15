@@ -1,0 +1,83 @@
+const React = require('react');
+
+const iconName = 'video-frame';
+const category = 'Video, Audio, Sound';
+const nodes = {"bold": [["path", {"d": "M6.24976 2.22164C5.02703 2.4159 4.14826 2.78043 3.46423 3.46447C2.78019 4.1485 2.41566 5.02727 2.2214 6.25H6.24976V2.22164Z", "fill": "#1C274C"}], ["path", {"d": "M2.0685 7.75C2.01015 8.73117 2.00133 9.88382 2 11.25H6.24976V7.75H2.0685Z", "fill": "#1C274C"}], ["path", {"d": "M2 12.75C2.00133 14.1162 2.01015 15.2688 2.0685 16.25H6.24976V12.75H2Z", "fill": "#1C274C"}], ["path", {"d": "M2.2214 17.75C2.41566 18.9727 2.78019 19.8515 3.46423 20.5355C4.14826 21.2196 5.02703 21.5841 6.24976 21.7784V17.75H2.2214Z", "fill": "#1C274C"}], ["path", {"d": "M7.74976 21.9313C8.90556 22 10.2993 22 11.9998 22C13.7002 22 15.094 22 16.2498 21.9313V12.75H7.74976V21.9313Z", "fill": "#1C274C"}], ["path", {"d": "M17.7498 21.7784C18.9725 21.5841 19.8513 21.2196 20.5353 20.5355C21.2193 19.8515 21.5839 18.9727 21.7781 17.75H17.7498V21.7784Z", "fill": "#1C274C"}], ["path", {"d": "M21.931 16.25C21.9894 15.2688 21.9982 14.1162 21.9995 12.75H17.7498V16.25H21.931Z", "fill": "#1C274C"}], ["path", {"d": "M21.9995 11.25C21.9982 9.88382 21.9894 8.73117 21.931 7.75H17.7498V11.25H21.9995Z", "fill": "#1C274C"}], ["path", {"d": "M21.7781 6.25C21.5839 5.02727 21.2193 4.1485 20.5353 3.46447C19.8513 2.78043 18.9725 2.4159 17.7498 2.22164V6.25H21.7781Z", "fill": "#1C274C"}], ["path", {"d": "M16.2498 2.06874C15.094 2 13.7002 2 11.9998 2C10.2993 2 8.90556 2 7.74976 2.06874V11.25H16.2498V2.06874Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"d": "M6.24976 2.22266C5.02703 2.41692 4.14826 2.78145 3.46423 3.46548C2.78019 4.14952 2.41566 5.02829 2.2214 6.25102H6.24976V2.22266Z", "fill": "#1C274C"}], ["path", {"d": "M2.0685 7.75102C2.01015 8.73219 2.00133 9.88484 2 11.251H6.24976V7.75102H2.0685Z", "fill": "#1C274C"}], ["path", {"d": "M2 12.751C2.00133 14.1172 2.01015 15.2698 2.0685 16.251H6.24976V12.751H2Z", "fill": "#1C274C"}], ["path", {"d": "M2.2214 17.751C2.41566 18.9738 2.78019 19.8525 3.46423 20.5366C4.14826 21.2206 5.02703 21.5851 6.24976 21.7794V17.751H2.2214Z", "fill": "#1C274C"}], ["path", {"d": "M17.7498 21.7794C18.9725 21.5851 19.8513 21.2206 20.5353 20.5366C21.2193 19.8525 21.5839 18.9738 21.7781 17.751H17.7498V21.7794Z", "fill": "#1C274C"}], ["path", {"d": "M21.931 16.251C21.9894 15.2698 21.9982 14.1172 21.9995 12.751H17.7498V16.251H21.931Z", "fill": "#1C274C"}], ["path", {"d": "M21.9995 11.251C21.9982 9.88484 21.9894 8.73219 21.931 7.75102H17.7498V11.251H21.9995Z", "fill": "#1C274C"}], ["path", {"d": "M21.7781 6.25102C21.5839 5.02829 21.2193 4.14952 20.5353 3.46548C19.8513 2.78145 18.9725 2.41692 17.7498 2.22266V6.25102H21.7781Z", "fill": "#1C274C"}], ["g", {"opacity": "0.5"}], ["path", {"d": "M7.75 21.9313C8.9058 22 10.2996 22 12 22C13.7004 22 15.0942 22 16.25 21.9313V12.75H7.75V21.9313Z", "fill": "#1C274C"}], ["path", {"d": "M16.25 2.06874C15.0942 2 13.7004 2 12 2C10.2996 2 8.9058 2 7.75 2.06874V11.25H16.25V2.06874Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.25 2.98181C5.18517 3.16506 4.50829 3.4813 3.9948 3.9948C3.4813 4.50829 3.16506 5.18517 2.98181 6.25H6.25V2.98181ZM7.75 2.81997V11.25H16.25V2.81997C15.1242 2.75085 13.7418 2.75 12 2.75C10.2582 2.75 8.87584 2.75085 7.75 2.81997ZM17.75 2.98181V6.25H21.0182C20.8349 5.18517 20.5187 4.50829 20.0052 3.9948C19.4917 3.4813 18.8148 3.16506 17.75 2.98181ZM21.18 7.75H17.75V11.25H21.2497C21.2483 9.8547 21.2389 8.70923 21.18 7.75ZM21.2497 12.75H17.75V16.25H21.18C21.2389 15.2908 21.2483 14.1453 21.2497 12.75ZM21.0182 17.75H17.75V21.0182C18.8148 20.8349 19.4917 20.5187 20.0052 20.0052C20.5187 19.4917 20.8349 18.8148 21.0182 17.75ZM16.25 21.18V12.75H7.75V21.18C8.87584 21.2491 10.2582 21.25 12 21.25C13.7418 21.25 15.1242 21.2491 16.25 21.18ZM6.25 21.0182V17.75H2.98181C3.16506 18.8148 3.4813 19.4917 3.9948 20.0052C4.50829 20.5187 5.18517 20.8349 6.25 21.0182ZM2.81997 16.25H6.25V12.75H2.75028C2.75175 14.1453 2.76108 15.2908 2.81997 16.25ZM2.75028 11.25H6.25V7.75H2.81997C2.76108 8.70923 2.75175 9.8547 2.75028 11.25Z", "fill": "white"}]]};
+
+function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+  return variantNodes.map(([tag, attrs], index) => {
+    const computed = Object.assign({}, attrs);
+    if (color !== 'original' && color !== 'source') {
+      if ('opacity' in attrs) {
+        computed.opacity = secondaryOpacity !== undefined ? secondaryOpacity : attrs.opacity;
+        computed.fill = secondaryColor || color;
+      } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
+        const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
+        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+      }
+      if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
+    }
+    return React.createElement(tag, Object.assign({ key: index }, computed));
+  });
+}
+
+const VideoFrameOutline = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const VideoFrameBold = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const VideoFrameBoldDuotone = React.forwardRef((props, ref) => {
+  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+  return React.createElement('svg', Object.assign({
+    ref,
+    viewBox: '0 0 24 24',
+    width: size,
+    height: size,
+    fill: 'none',
+    xmlns: 'http://www.w3.org/2000/svg',
+    className,
+    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
+    'aria-hidden': title ? undefined : 'true',
+    role: title ? 'img' : 'presentation'
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+});
+
+const VideoFrame = VideoFrameOutline;
+
+module.exports = {
+  iconName,
+  category,
+  nodes,
+  VideoFrame,
+  VideoFrameOutline,
+  VideoFrameBold,
+  VideoFrameBoldDuotone,
+  default: VideoFrame
+};

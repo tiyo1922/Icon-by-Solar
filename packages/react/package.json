@@ -1,0 +1,58 @@
+{
+  "name": "@icon-by-solar/react",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Official React icon library for Icon by Solar, supporting Outline, Bold, and Bold Duotone styles with full TypeScript definitions and tree-shaking.",
+  "author": "Icon by Solar (Artwork by 480 Design)",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js",
+      "require": "./dist/icons/*.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "icon-by-solar",
+    "solar-icons",
+    "react-icons",
+    "svg-icons",
+    "duotone-icons",
+    "react",
+    "typescript"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0 || ^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "scripts": {
+    "build": "tsup && python3 ../../tools/build_react_icons.py",
+    "typecheck": "tsc --noEmit"
+  }
+}
