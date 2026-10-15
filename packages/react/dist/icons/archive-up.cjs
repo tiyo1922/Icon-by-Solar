@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-const ArchiveUpOutline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+const SolarArchiveUp = React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', Object.assign({
     ref,
     viewBox: '0 0 24 24',
@@ -34,50 +46,35 @@ const ArchiveUpOutline = React.forwardRef((props, ref) => {
     style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+});
+
+SolarArchiveUp.nodes = nodes;
+SolarArchiveUp.iconName = iconName;
+SolarArchiveUp.category = category;
+
+const ArchiveUpOutline = React.forwardRef((props, ref) => {
+  return React.createElement(SolarArchiveUp, Object.assign({ ref, variant: 'outline' }, props));
 });
 
 const ArchiveUpBold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarArchiveUp, Object.assign({ ref, variant: 'bold' }, props));
 });
 
 const ArchiveUpBoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarArchiveUp, Object.assign({ ref, variant: 'bold-duotone' }, props));
 });
 
-const ArchiveUp = ArchiveUpOutline;
+const ArchiveUp = SolarArchiveUp;
 
 module.exports = {
   iconName,
   category,
   nodes,
+  SolarArchiveUp,
   ArchiveUp,
   ArchiveUpOutline,
   ArchiveUpBold,
   ArchiveUpBoldDuotone,
-  default: ArchiveUp
+  default: SolarArchiveUp
 };

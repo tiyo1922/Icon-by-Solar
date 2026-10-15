@@ -1,7 +1,16 @@
 import React from 'react';
-import { IconNode } from '../types';
+import { IconNode, IconVariant } from '../types';
 
-export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
+  variant?: IconVariant;
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export interface SingleVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
   size?: number | string;
   color?: string;
   secondaryColor?: string;
@@ -12,8 +21,16 @@ export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
 export declare const iconName: 'face-scan-circle';
 export declare const category: 'Faces, Emotions, Stickers';
 export declare const nodes: Record<string, IconNode[]>;
-export declare const FaceScanCircleOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const FaceScanCircleBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const FaceScanCircleBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const FaceScanCircle: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export default FaceScanCircle;
+
+export interface SolarIconComponent extends React.ForwardRefExoticComponent<MultiVariantIconProps & React.RefAttributes<SVGSVGElement>> {
+  nodes: Record<string, IconNode[]>;
+  iconName: string;
+  category: string;
+}
+
+export declare const SolarFaceScanCircle: SolarIconComponent;
+export declare const FaceScanCircleOutline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const FaceScanCircleBold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const FaceScanCircleBoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const FaceScanCircle: SolarIconComponent;
+export default SolarFaceScanCircle;

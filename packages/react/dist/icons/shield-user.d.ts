@@ -1,7 +1,16 @@
 import React from 'react';
-import { IconNode } from '../types';
+import { IconNode, IconVariant } from '../types';
 
-export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
+  variant?: IconVariant;
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export interface SingleVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
   size?: number | string;
   color?: string;
   secondaryColor?: string;
@@ -12,8 +21,16 @@ export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
 export declare const iconName: 'shield-user';
 export declare const category: 'Security';
 export declare const nodes: Record<string, IconNode[]>;
-export declare const ShieldUserOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const ShieldUserBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const ShieldUserBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const ShieldUser: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export default ShieldUser;
+
+export interface SolarIconComponent extends React.ForwardRefExoticComponent<MultiVariantIconProps & React.RefAttributes<SVGSVGElement>> {
+  nodes: Record<string, IconNode[]>;
+  iconName: string;
+  category: string;
+}
+
+export declare const SolarShieldUser: SolarIconComponent;
+export declare const ShieldUserOutline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const ShieldUserBold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const ShieldUserBoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const ShieldUser: SolarIconComponent;
+export default SolarShieldUser;

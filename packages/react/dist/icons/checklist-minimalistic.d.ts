@@ -1,7 +1,16 @@
 import React from 'react';
-import { IconNode } from '../types';
+import { IconNode, IconVariant } from '../types';
 
-export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
+  variant?: IconVariant;
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export interface SingleVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
   size?: number | string;
   color?: string;
   secondaryColor?: string;
@@ -12,8 +21,16 @@ export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
 export declare const iconName: 'checklist-minimalistic';
 export declare const category: 'List';
 export declare const nodes: Record<string, IconNode[]>;
-export declare const ChecklistMinimalisticOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const ChecklistMinimalisticBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const ChecklistMinimalisticBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const ChecklistMinimalistic: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export default ChecklistMinimalistic;
+
+export interface SolarIconComponent extends React.ForwardRefExoticComponent<MultiVariantIconProps & React.RefAttributes<SVGSVGElement>> {
+  nodes: Record<string, IconNode[]>;
+  iconName: string;
+  category: string;
+}
+
+export declare const SolarChecklistMinimalistic: SolarIconComponent;
+export declare const ChecklistMinimalisticOutline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const ChecklistMinimalisticBold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const ChecklistMinimalisticBoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const ChecklistMinimalistic: SolarIconComponent;
+export default SolarChecklistMinimalistic;

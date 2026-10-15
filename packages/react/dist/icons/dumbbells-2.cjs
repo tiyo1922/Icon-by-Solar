@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-const Dumbbells2Outline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+const SolarDumbbells2 = React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', Object.assign({
     ref,
     viewBox: '0 0 24 24',
@@ -34,50 +46,35 @@ const Dumbbells2Outline = React.forwardRef((props, ref) => {
     style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+});
+
+SolarDumbbells2.nodes = nodes;
+SolarDumbbells2.iconName = iconName;
+SolarDumbbells2.category = category;
+
+const Dumbbells2Outline = React.forwardRef((props, ref) => {
+  return React.createElement(SolarDumbbells2, Object.assign({ ref, variant: 'outline' }, props));
 });
 
 const Dumbbells2Bold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarDumbbells2, Object.assign({ ref, variant: 'bold' }, props));
 });
 
 const Dumbbells2BoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarDumbbells2, Object.assign({ ref, variant: 'bold-duotone' }, props));
 });
 
-const Dumbbells2 = Dumbbells2Outline;
+const Dumbbells2 = SolarDumbbells2;
 
 module.exports = {
   iconName,
   category,
   nodes,
+  SolarDumbbells2,
   Dumbbells2,
   Dumbbells2Outline,
   Dumbbells2Bold,
   Dumbbells2BoldDuotone,
-  default: Dumbbells2
+  default: SolarDumbbells2
 };

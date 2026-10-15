@@ -1,7 +1,16 @@
 import React from 'react';
-import { IconNode } from '../types';
+import { IconNode, IconVariant } from '../types';
 
-export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
+  variant?: IconVariant;
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export interface SingleVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
   size?: number | string;
   color?: string;
   secondaryColor?: string;
@@ -12,8 +21,16 @@ export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
 export declare const iconName: 'palette-round';
 export declare const category: 'Design, Tools';
 export declare const nodes: Record<string, IconNode[]>;
-export declare const PaletteRoundOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const PaletteRoundBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const PaletteRoundBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const PaletteRound: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export default PaletteRound;
+
+export interface SolarIconComponent extends React.ForwardRefExoticComponent<MultiVariantIconProps & React.RefAttributes<SVGSVGElement>> {
+  nodes: Record<string, IconNode[]>;
+  iconName: string;
+  category: string;
+}
+
+export declare const SolarPaletteRound: SolarIconComponent;
+export declare const PaletteRoundOutline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const PaletteRoundBold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const PaletteRoundBoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const PaletteRound: SolarIconComponent;
+export default SolarPaletteRound;

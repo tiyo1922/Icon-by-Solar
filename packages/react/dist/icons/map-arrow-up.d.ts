@@ -1,7 +1,16 @@
 import React from 'react';
-import { IconNode } from '../types';
+import { IconNode, IconVariant } from '../types';
 
-export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
+export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
+  variant?: IconVariant;
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}
+
+export interface SingleVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
   size?: number | string;
   color?: string;
   secondaryColor?: string;
@@ -12,8 +21,16 @@ export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
 export declare const iconName: 'map-arrow-up';
 export declare const category: 'Map & Location';
 export declare const nodes: Record<string, IconNode[]>;
-export declare const MapArrowUpOutline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const MapArrowUpBold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const MapArrowUpBoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const MapArrowUp: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export default MapArrowUp;
+
+export interface SolarIconComponent extends React.ForwardRefExoticComponent<MultiVariantIconProps & React.RefAttributes<SVGSVGElement>> {
+  nodes: Record<string, IconNode[]>;
+  iconName: string;
+  category: string;
+}
+
+export declare const SolarMapArrowUp: SolarIconComponent;
+export declare const MapArrowUpOutline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const MapArrowUpBold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const MapArrowUpBoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const MapArrowUp: SolarIconComponent;
+export default SolarMapArrowUp;

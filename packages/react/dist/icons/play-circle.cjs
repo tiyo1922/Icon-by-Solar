@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-const PlayCircleOutline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+const SolarPlayCircle = React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', Object.assign({
     ref,
     viewBox: '0 0 24 24',
@@ -34,50 +46,35 @@ const PlayCircleOutline = React.forwardRef((props, ref) => {
     style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+});
+
+SolarPlayCircle.nodes = nodes;
+SolarPlayCircle.iconName = iconName;
+SolarPlayCircle.category = category;
+
+const PlayCircleOutline = React.forwardRef((props, ref) => {
+  return React.createElement(SolarPlayCircle, Object.assign({ ref, variant: 'outline' }, props));
 });
 
 const PlayCircleBold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarPlayCircle, Object.assign({ ref, variant: 'bold' }, props));
 });
 
 const PlayCircleBoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarPlayCircle, Object.assign({ ref, variant: 'bold-duotone' }, props));
 });
 
-const PlayCircle = PlayCircleOutline;
+const PlayCircle = SolarPlayCircle;
 
 module.exports = {
   iconName,
   category,
   nodes,
+  SolarPlayCircle,
   PlayCircle,
   PlayCircleOutline,
   PlayCircleBold,
   PlayCircleBoldDuotone,
-  default: PlayCircle
+  default: SolarPlayCircle
 };

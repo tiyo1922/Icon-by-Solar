@@ -128,33 +128,18 @@ icon-by-solar/
 npm install /path/to/icon-by-solar/packages/react
 ```
 
-### Cara 1: Universal Component (Target Desain)
+### Optimasi Bundle & Tree-Shaking
 
-Gunakan `<SolarIcon />` untuk kemudahan pemanggilan dinamis berbasis nama kanonis:
+Package `@icon-by-solar/react` didesain modular agar aplikasi Anda hanya menyertakan ikon yang digunakan:
 
-```tsx
-import React from 'react';
-import { SolarIcon } from '@icon-by-solar/react';
+| Pola Penggunaan | Ukuran Bundle (Vite + React) | Ukuran Gzip | Rekomendasi |
+| :--- | :---: | :---: | :--- |
+| **Selective Imports / Registry** | **~166 kB** | **~54 kB** | **Sangat Direkomendasikan** (Pengurangan ukuran **97,7%**) |
+| **Full Catalog (`/all`)** | **~7,5 MB** | **~1,6 MB** | Khusus CMS, admin panel, atau visual icon picker |
 
-export default function Header() {
-  return (
-    <div className="flex items-center gap-3">
-      {/* Outline (default) */}
-      <SolarIcon name="home" variant="outline" size={24} />
+### Cara 1: Selective Import (Tree-Shaking Maksimal)
 
-      {/* Bold dengan warna kustom */}
-      <SolarIcon name="home" variant="bold" size={32} color="#0342C9" />
-
-      {/* Bold Duotone */}
-      <SolarIcon name="home" variant="bold-duotone" size={24} />
-    </div>
-  );
-}
-```
-
-### Cara 2: Selective Import (Tree-Shaking Optimal)
-
-Untuk memastikan bundle web browser hanya memuat ikon yang benar-benar digunakan tanpa overhead:
+Impor komponen ikon secara langsung. Bundler (Vite, Next.js, Webpack) otomatis membuang ikon lain dari bundle akhir:
 
 ```tsx
 import React from 'react';
@@ -163,13 +148,65 @@ import { BellBingBold } from '@icon-by-solar/react/icons/bell-bing';
 
 export function Navigation() {
   return (
-    <nav>
+    <nav className="flex items-center gap-3">
       <HomeOutline size={24} className="text-gray-700" />
       <HomeBold size={24} color="#2563EB" />
       <HomeBoldDuotone size={24} secondaryOpacity={0.6} />
       <BellBingBold size={24} className="text-amber-500" />
     </nav>
   );
+}
+```
+
+### Cara 2: Universal `<SolarIcon />` dengan Registrasi Selektif
+
+Jika Anda menyukai API `<SolarIcon name="..." />` yang seragam namun ingin bundle tetap ramping (~166 kB):
+
+```tsx
+import React from 'react';
+import { SolarIcon, registerIcons } from '@icon-by-solar/react';
+import { SolarHome } from '@icon-by-solar/react/icons/home';
+import { SolarChatSquareArrow } from '@icon-by-solar/react/icons/chat-square-arrow';
+
+// Daftarkan hanya ikon yang digunakan pada aplikasi
+registerIcons([SolarHome, SolarChatSquareArrow]);
+
+export default function Header() {
+  return (
+    <div className="flex items-center gap-3">
+      <SolarIcon name="home" variant="outline" size={24} />
+      <SolarIcon name="home" variant="bold" size={32} color="#0342C9" />
+      <SolarIcon name="chat-square-arrow" variant="bold-duotone" size={24} className="text-emerald-500" />
+    </div>
+  );
+}
+```
+
+### Cara 3: Direct Component Prop (Tanpa Registrasi)
+
+Teruskan komponen ikon langsung ke prop `icon`:
+
+```tsx
+import React from 'react';
+import { SolarIcon } from '@icon-by-solar/react';
+import { SolarHome } from '@icon-by-solar/react/icons/home';
+
+export function QuickIcon() {
+  return <SolarIcon icon={SolarHome} variant="outline" size={24} />;
+}
+```
+
+### Cara 4: Full Catalog Bundle (Untuk CMS / Admin Picker)
+
+Jika aplikasi Anda benar-benar memerlukan seluruh 1.246 ikon secara dinamis di runtime (misalnya CMS icon picker):
+
+```tsx
+import React from 'react';
+import { SolarIcon } from '@icon-by-solar/react/all';
+
+export function DynamicIconPicker({ iconName }: { iconName: string }) {
+  // Seluruh 1.246 ikon terdaftar secara otomatis
+  return <SolarIcon name={iconName} variant="outline" size={24} />;
 }
 ```
 

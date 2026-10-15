@@ -1,6 +1,10 @@
 import React from 'react';
-import { SolarIcon, IconBySolar } from '@icon-by-solar/react';
-import { HomeOutline, HomeBold, HomeBoldDuotone } from '@icon-by-solar/react/icons/home';
+import { SolarIcon, IconBySolar, registerIcons } from '@icon-by-solar/react';
+import { SolarHome, HomeOutline, HomeBold, HomeBoldDuotone } from '@icon-by-solar/react/icons/home';
+import { SolarChatSquareArrow } from '@icon-by-solar/react/icons/chat-square-arrow';
+
+// Register only the icons needed for tree-shaking
+registerIcons([SolarHome, SolarChatSquareArrow]);
 
 export default function App() {
   return (

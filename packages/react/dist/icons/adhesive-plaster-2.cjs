@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-const AdhesivePlaster2Outline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+const SolarAdhesivePlaster2 = React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', Object.assign({
     ref,
     viewBox: '0 0 24 24',
@@ -34,50 +46,35 @@ const AdhesivePlaster2Outline = React.forwardRef((props, ref) => {
     style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+});
+
+SolarAdhesivePlaster2.nodes = nodes;
+SolarAdhesivePlaster2.iconName = iconName;
+SolarAdhesivePlaster2.category = category;
+
+const AdhesivePlaster2Outline = React.forwardRef((props, ref) => {
+  return React.createElement(SolarAdhesivePlaster2, Object.assign({ ref, variant: 'outline' }, props));
 });
 
 const AdhesivePlaster2Bold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarAdhesivePlaster2, Object.assign({ ref, variant: 'bold' }, props));
 });
 
 const AdhesivePlaster2BoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', Object.assign({
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(SolarAdhesivePlaster2, Object.assign({ ref, variant: 'bold-duotone' }, props));
 });
 
-const AdhesivePlaster2 = AdhesivePlaster2Outline;
+const AdhesivePlaster2 = SolarAdhesivePlaster2;
 
 module.exports = {
   iconName,
   category,
   nodes,
+  SolarAdhesivePlaster2,
   AdhesivePlaster2,
   AdhesivePlaster2Outline,
   AdhesivePlaster2Bold,
   AdhesivePlaster2BoldDuotone,
-  default: AdhesivePlaster2
+  default: SolarAdhesivePlaster2
 };

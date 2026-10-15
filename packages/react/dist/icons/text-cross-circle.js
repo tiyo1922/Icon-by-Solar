@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-export const TextCrossCircleOutline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+export const SolarTextCrossCircle = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', {
     ref,
     viewBox: '0 0 24 24',
@@ -35,42 +47,24 @@ export const TextCrossCircleOutline = React.forwardRef((props, ref) => {
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
 });
 
-export const TextCrossCircleBold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+SolarTextCrossCircle.nodes = nodes;
+SolarTextCrossCircle.iconName = iconName;
+SolarTextCrossCircle.category = category;
+
+export const TextCrossCircleOutline = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarTextCrossCircle, Object.assign({ ref, variant: 'outline' }, props));
 });
 
-export const TextCrossCircleBoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+export const TextCrossCircleBold = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarTextCrossCircle, Object.assign({ ref, variant: 'bold' }, props));
 });
 
-export const TextCrossCircle = TextCrossCircleOutline;
-export default TextCrossCircle;
+export const TextCrossCircleBoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarTextCrossCircle, Object.assign({ ref, variant: 'bold-duotone' }, props));
+});
+
+export const TextCrossCircle = SolarTextCrossCircle;
+export default SolarTextCrossCircle;

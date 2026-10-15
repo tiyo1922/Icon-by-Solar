@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates per-icon selective modules in packages/react/dist/icons."""
+"""Generates per-icon selective modules in packages/react/dist/icons with multi-variant support."""
 import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -47,6 +47,10 @@ def main():
     dist_icons = PKG / 'dist' / 'icons'
     dist_icons.mkdir(parents=True, exist_ok=True)
     
+    re_exports_esm = []
+    re_exports_cjs = []
+    re_exports_dts = []
+    
     for canonical, info in manifest['icons'].items():
         pascal = info['pascalName']
         var_data = {}
@@ -79,8 +83,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   }});
 }}
 
-export const {pascal}Outline = React.forwardRef((props, ref) => {{
-  const {{ size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest }} = props;
+export const Solar{pascal} = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  const {{
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  }} = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', {{
     ref,
     viewBox: '0 0 24 24',
@@ -93,45 +109,27 @@ export const {pascal}Outline = React.forwardRef((props, ref) => {{
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }}, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }}, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
 }});
 
-export const {pascal}Bold = React.forwardRef((props, ref) => {{
-  const {{ size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest }} = props;
-  return React.createElement('svg', {{
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: {{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style }},
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }}, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+Solar{pascal}.nodes = nodes;
+Solar{pascal}.iconName = iconName;
+Solar{pascal}.category = category;
+
+export const {pascal}Outline = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
 }});
 
-export const {pascal}BoldDuotone = React.forwardRef((props, ref) => {{
-  const {{ size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest }} = props;
-  return React.createElement('svg', {{
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: {{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style }},
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }}, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+export const {pascal}Bold = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
 }});
 
-export const {pascal} = {pascal}Outline;
-export default {pascal};
+export const {pascal}BoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
+}});
+
+export const {pascal} = Solar{pascal};
+export default Solar{pascal};
 """
         (dist_icons / f"{canonical}.js").write_text(esm_code, encoding='utf-8')
 
@@ -159,8 +157,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   }});
 }}
 
-const {pascal}Outline = React.forwardRef((props, ref) => {{
-  const {{ size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest }} = props;
+const Solar{pascal} = React.forwardRef((props, ref) => {{
+  const {{
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  }} = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', Object.assign({{
     ref,
     viewBox: '0 0 24 24',
@@ -172,61 +182,55 @@ const {pascal}Outline = React.forwardRef((props, ref) => {{
     style: Object.assign({{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}, style),
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation'
-  }}, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }}, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+}});
+
+Solar{pascal}.nodes = nodes;
+Solar{pascal}.iconName = iconName;
+Solar{pascal}.category = category;
+
+const {pascal}Outline = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
 }});
 
 const {pascal}Bold = React.forwardRef((props, ref) => {{
-  const {{ size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest }} = props;
-  return React.createElement('svg', Object.assign({{
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }}, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
 }});
 
 const {pascal}BoldDuotone = React.forwardRef((props, ref) => {{
-  const {{ size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest }} = props;
-  return React.createElement('svg', Object.assign({{
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: Object.assign({{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}, style),
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation'
-  }}, rest), title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
 }});
 
-const {pascal} = {pascal}Outline;
+const {pascal} = Solar{pascal};
 
 module.exports = {{
   iconName,
   category,
   nodes,
+  Solar{pascal},
   {pascal},
   {pascal}Outline,
   {pascal}Bold,
   {pascal}BoldDuotone,
-  default: {pascal}
+  default: Solar{pascal}
 }};
 """
         (dist_icons / f"{canonical}.cjs").write_text(cjs_code, encoding='utf-8')
 
         # Types (.d.ts)
         dts_code = f"""import React from 'react';
-import {{ IconNode }} from '../types';
+import {{ IconNode, IconVariant }} from '../types';
 
-export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {{
+export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {{
+  variant?: IconVariant;
+  size?: number | string;
+  color?: string;
+  secondaryColor?: string;
+  secondaryOpacity?: number | string;
+  title?: string;
+}}
+
+export interface SingleVariantIconProps extends React.SVGAttributes<SVGSVGElement> {{
   size?: number | string;
   color?: string;
   secondaryColor?: string;
@@ -237,15 +241,32 @@ export interface IconComponentProps extends React.SVGAttributes<SVGSVGElement> {
 export declare const iconName: '{canonical}';
 export declare const category: '{info['category']}';
 export declare const nodes: Record<string, IconNode[]>;
-export declare const {pascal}Outline: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const {pascal}Bold: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const {pascal}BoldDuotone: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export declare const {pascal}: React.ForwardRefExoticComponent<IconComponentProps & React.RefAttributes<SVGSVGElement>>;
-export default {pascal};
+
+export interface SolarIconComponent extends React.ForwardRefExoticComponent<MultiVariantIconProps & React.RefAttributes<SVGSVGElement>> {{
+  nodes: Record<string, IconNode[]>;
+  iconName: string;
+  category: string;
+}}
+
+export declare const Solar{pascal}: SolarIconComponent;
+export declare const {pascal}Outline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {pascal}Bold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {pascal}BoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {pascal}: SolarIconComponent;
+export default Solar{pascal};
 """
         (dist_icons / f"{canonical}.d.ts").write_text(dts_code, encoding='utf-8')
         
-    print(f"Generated {len(manifest['icons'])} selective import modules in {dist_icons}")
+        re_exports_esm.append(f"export * from './{canonical}.js';")
+        re_exports_cjs.append(f"Object.assign(module.exports, require('./{canonical}.cjs'));")
+        re_exports_dts.append(f"export * from './{canonical}';")
+
+    # Generate dist/icons/index.js, .cjs, .d.ts
+    (dist_icons / 'index.js').write_text('\n'.join(re_exports_esm) + '\n', encoding='utf-8')
+    (dist_icons / 'index.cjs').write_text('module.exports = {};\n' + '\n'.join(re_exports_cjs) + '\n', encoding='utf-8')
+    (dist_icons / 'index.d.ts').write_text('\n'.join(re_exports_dts) + '\n', encoding='utf-8')
+
+    print(f"Generated {len(manifest['icons'])} selective import modules + index in {dist_icons}")
 
 if __name__ == '__main__':
     main()

@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-export const RoundArrowLeftDownOutline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+export const SolarRoundArrowLeftDown = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', {
     ref,
     viewBox: '0 0 24 24',
@@ -35,42 +47,24 @@ export const RoundArrowLeftDownOutline = React.forwardRef((props, ref) => {
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
 });
 
-export const RoundArrowLeftDownBold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+SolarRoundArrowLeftDown.nodes = nodes;
+SolarRoundArrowLeftDown.iconName = iconName;
+SolarRoundArrowLeftDown.category = category;
+
+export const RoundArrowLeftDownOutline = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarRoundArrowLeftDown, Object.assign({ ref, variant: 'outline' }, props));
 });
 
-export const RoundArrowLeftDownBoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+export const RoundArrowLeftDownBold = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarRoundArrowLeftDown, Object.assign({ ref, variant: 'bold' }, props));
 });
 
-export const RoundArrowLeftDown = RoundArrowLeftDownOutline;
-export default RoundArrowLeftDown;
+export const RoundArrowLeftDownBoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarRoundArrowLeftDown, Object.assign({ ref, variant: 'bold-duotone' }, props));
+});
+
+export const RoundArrowLeftDown = SolarRoundArrowLeftDown;
+export default SolarRoundArrowLeftDown;

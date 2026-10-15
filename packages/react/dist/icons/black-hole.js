@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-export const BlackHoleOutline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+export const SolarBlackHole = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', {
     ref,
     viewBox: '0 0 24 24',
@@ -35,42 +47,24 @@ export const BlackHoleOutline = React.forwardRef((props, ref) => {
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
 });
 
-export const BlackHoleBold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+SolarBlackHole.nodes = nodes;
+SolarBlackHole.iconName = iconName;
+SolarBlackHole.category = category;
+
+export const BlackHoleOutline = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarBlackHole, Object.assign({ ref, variant: 'outline' }, props));
 });
 
-export const BlackHoleBoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+export const BlackHoleBold = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarBlackHole, Object.assign({ ref, variant: 'bold' }, props));
 });
 
-export const BlackHole = BlackHoleOutline;
-export default BlackHole;
+export const BlackHoleBoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarBlackHole, Object.assign({ ref, variant: 'bold-duotone' }, props));
+});
+
+export const BlackHole = SolarBlackHole;
+export default SolarBlackHole;

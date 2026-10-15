@@ -1,11 +1,16 @@
 import React from '../../packages/react/node_modules/react/index.js';
 import { renderToStaticMarkup } from '../../packages/react/node_modules/react-dom/server.node.js';
-import { SolarIcon, resolveIcon } from '../../packages/react/dist/index.js';
-import { HomeOutline, HomeBoldDuotone } from '../../packages/react/dist/icons/home.js';
+import { SolarIcon, registerIcons, resolveIcon } from '../../packages/react/dist/index.js';
+import { SolarHome, HomeOutline, HomeBoldDuotone } from '../../packages/react/dist/icons/home.js';
+import { SolarChatSquareArrow } from '../../packages/react/dist/icons/chat-square-arrow.js';
+import { SolarIcon as AllSolarIcon, resolveIcon as allResolveIcon } from '../../packages/react/dist/all.js';
 
 console.log('Testing @icon-by-solar/react...');
 
-// 1. Test universal component with outline variant
+// Register icons for modular testing
+registerIcons([SolarHome, SolarChatSquareArrow]);
+
+// 1. Test universal component with outline variant after registration
 const html1 = renderToStaticMarkup(
   React.createElement(SolarIcon, { name: 'home', variant: 'outline', size: 24, className: 'text-blue-500' })
 );
@@ -56,11 +61,29 @@ if (!html5.includes('Icon not found')) {
 }
 console.log('✅ Test 5 Passed: Missing icon returned designated fallback.');
 
-// 6. Test alias resolution for double space Bold Duotone filename
-const nodes = resolveIcon('Chat  Square Arrow', 'bold-duotone');
-if (!nodes || nodes.length === 0) {
-  throw new Error('Test 6 Failed: Failed to resolve alias with double space.');
+// 6. Test direct icon component prop (zero registration)
+const html6 = renderToStaticMarkup(
+  React.createElement(SolarIcon, { icon: SolarHome, variant: 'outline', size: 20 })
+);
+if (!html6.includes('viewBox="0 0 24 24"') || !html6.includes('width="20"')) {
+  throw new Error(`Test 6 Failed: Direct icon prop failed: ${html6}`);
 }
-console.log('✅ Test 6 Passed: Double-space anomaly resolved to canonical icon nodes.');
+console.log('✅ Test 6 Passed: Direct icon component prop <SolarIcon icon={SolarHome} /> rendered without registration.');
+
+// 7. Test full catalog entry (@icon-by-solar/react/all)
+const html7 = renderToStaticMarkup(
+  React.createElement(AllSolarIcon, { name: 'bell-bing', variant: 'bold', size: 24 })
+);
+if (!html7.includes('viewBox="0 0 24 24"') || !html7.includes('width="24"')) {
+  throw new Error(`Test 7 Failed: Full catalog entry failed: ${html7}`);
+}
+console.log('✅ Test 7 Passed: Full collection import from @icon-by-solar/react/all rendered any icon seamlessly.');
+
+// 8. Test alias resolution
+const nodes = allResolveIcon('Chat  Square Arrow', 'bold-duotone');
+if (!nodes || nodes.length === 0) {
+  throw new Error('Test 8 Failed: Failed to resolve alias with double space.');
+}
+console.log('✅ Test 8 Passed: Double-space anomaly resolved to canonical icon nodes.');
 
 console.log('\n🎉 ALL REACT COMPONENT TESTS PASSED SUCCESSFULLY!');

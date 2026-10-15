@@ -21,8 +21,20 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
   });
 }
 
-export const BookmarkSquareMinimalisticOutline = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
+export const SolarBookmarkSquareMinimalistic = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  const {
+    variant = 'outline',
+    size = 24,
+    color = 'currentColor',
+    secondaryColor,
+    secondaryOpacity,
+    className,
+    style,
+    title,
+    ...rest
+  } = props;
+  const normVariant = variant === 'bold_duotone' ? 'bold-duotone' : variant.toLowerCase();
+  const variantNodes = nodes[normVariant] || nodes['outline'] || [];
   return React.createElement('svg', {
     ref,
     viewBox: '0 0 24 24',
@@ -35,42 +47,24 @@ export const BookmarkSquareMinimalisticOutline = React.forwardRef((props, ref) =
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['outline'] || [], color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
 });
 
-export const BookmarkSquareMinimalisticBold = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold'] || [], color, secondaryColor, secondaryOpacity));
+SolarBookmarkSquareMinimalistic.nodes = nodes;
+SolarBookmarkSquareMinimalistic.iconName = iconName;
+SolarBookmarkSquareMinimalistic.category = category;
+
+export const BookmarkSquareMinimalisticOutline = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarBookmarkSquareMinimalistic, Object.assign({ ref, variant: 'outline' }, props));
 });
 
-export const BookmarkSquareMinimalisticBoldDuotone = React.forwardRef((props, ref) => {
-  const { size = 24, color = 'currentColor', secondaryColor, secondaryOpacity, className, style, title, ...rest } = props;
-  return React.createElement('svg', {
-    ref,
-    viewBox: '0 0 24 24',
-    width: size,
-    height: size,
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    className,
-    style: { display: 'inline-block', verticalAlign: 'middle', flexShrink: 0, ...style },
-    'aria-hidden': title ? undefined : 'true',
-    role: title ? 'img' : 'presentation',
-    ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(nodes['bold-duotone'] || [], color, secondaryColor, secondaryOpacity));
+export const BookmarkSquareMinimalisticBold = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarBookmarkSquareMinimalistic, Object.assign({ ref, variant: 'bold' }, props));
 });
 
-export const BookmarkSquareMinimalistic = BookmarkSquareMinimalisticOutline;
-export default BookmarkSquareMinimalistic;
+export const BookmarkSquareMinimalisticBoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {
+  return React.createElement(SolarBookmarkSquareMinimalistic, Object.assign({ ref, variant: 'bold-duotone' }, props));
+});
+
+export const BookmarkSquareMinimalistic = SolarBookmarkSquareMinimalistic;
+export default SolarBookmarkSquareMinimalistic;

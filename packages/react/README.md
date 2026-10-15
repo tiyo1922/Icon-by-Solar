@@ -11,11 +11,22 @@ Official React components for **Icon by Solar**. Features 3,738 icons across 3 c
 
 - **3 Visual Styles:** `outline`, `bold`, and `bold-duotone`.
 - **1,246 Canonical Icons:** 100% paired across all 3 styles.
-- **Tree-Shaking & Selective Imports:** Import individual icon modules from `@icon-by-solar/react/icons/*` with zero bundle bloat.
-- **Universal Component API:** `<SolarIcon name="home" variant="outline" size={24} />` with intelligent alias & collision resolution.
+- **Ultra-Lightweight & Tree-Shakeable:** Modular per-icon modules with `/* @__PURE__ */` annotations and `"sideEffects": false`.
+- **Flexible Universal Component API:** `<SolarIcon />` supporting selective registration, direct component props, or dynamic full catalog.
 - **Tailwind CSS Ready:** Uses `currentColor` by default so classes like `text-blue-600` and `hover:text-blue-700` work immediately.
 - **True Duotone Control:** Preserves secondary opacity layer while allowing custom `secondaryColor` and `secondaryOpacity`.
-- **Full TypeScript Autocomplete:** All 1,246 icon names typed.
+- **Full TypeScript Autocomplete:** All 1,246 icon names strongly typed.
+
+---
+
+## Bundle Optimization & Tree-Shaking
+
+To prevent bundling all 1,246 icons (~7.2 MB) into applications that only need a handful of icons, `@icon-by-solar/react` provides an optimized modular architecture:
+
+| Import Pattern | Bundle Size (Vite JS + React Runtime) | Gzip Size | Use Case |
+| :--- | :---: | :---: | :--- |
+| **Selective Imports / Registry** | **~166 kB** | **~54 kB** | Standard production apps (97.7% size reduction!) |
+| **Full Catalog (`/all`)** | **~7.5 MB** | **~1.6 MB** | CMS, admin dashboards, or runtime icon pickers |
 
 ---
 
@@ -34,40 +45,11 @@ pnpm add @icon-by-solar/react
 
 ---
 
-## Usage
+## Usage Patterns
 
-### 1. Universal Component (Dynamic)
+### Pattern 1: Selective Imports (Recommended for Maximum Performance)
 
-Use `<SolarIcon />` (or alias `<IconBySolar />`) when you want a flexible, name-driven icon component:
-
-```tsx
-import React from 'react';
-import { SolarIcon } from '@icon-by-solar/react';
-
-export default function DashboardHeader() {
-  return (
-    <div className="flex items-center gap-4">
-      {/* Default outline style */}
-      <SolarIcon name="home" variant="outline" size={24} />
-
-      {/* Bold with custom color */}
-      <SolarIcon name="bell-bing" variant="bold" size={28} color="#0342C9" />
-
-      {/* Bold Duotone with Tailwind utility */}
-      <SolarIcon
-        name="chat-square-arrow"
-        variant="bold-duotone"
-        size={24}
-        className="text-emerald-500"
-      />
-    </div>
-  );
-}
-```
-
-### 2. Selective Imports (Optimal Tree-Shaking)
-
-To guarantee that your production bundle only includes the icons you actually use, import directly from the per-icon subpaths:
+Import individual icon components directly. Bundlers like Vite, Next.js, and Webpack will tree-shake everything else out of your bundle.
 
 ```tsx
 import React from 'react';
@@ -76,7 +58,7 @@ import { BellBingBold } from '@icon-by-solar/react/icons/bell-bing';
 
 export function Navigation() {
   return (
-    <nav>
+    <nav className="flex items-center gap-4">
       <HomeOutline size={24} className="text-gray-700" />
       <HomeBold size={24} color="#2563EB" />
       <HomeBoldDuotone size={24} secondaryOpacity={0.6} />
@@ -86,13 +68,66 @@ export function Navigation() {
 }
 ```
 
+### Pattern 2: Tree-Shakeable `<SolarIcon />` with Selective Registration
+
+If you prefer using `<SolarIcon name="..." />` or dynamic name switching while maintaining optimal bundle size, register only the icons your app uses:
+
+```tsx
+import React from 'react';
+import { SolarIcon, registerIcons } from '@icon-by-solar/react';
+import { SolarHome } from '@icon-by-solar/react/icons/home';
+import { SolarChatSquareArrow } from '@icon-by-solar/react/icons/chat-square-arrow';
+
+// Register only icons needed by this module/app (array, object, or varargs)
+registerIcons([SolarHome, SolarChatSquareArrow]);
+
+export default function Header() {
+  return (
+    <header className="flex items-center gap-3">
+      <SolarIcon name="home" variant="outline" size={24} />
+      <SolarIcon name="home" variant="bold" size={32} color="#0342C9" />
+      <SolarIcon name="chat-square-arrow" variant="bold-duotone" size={24} className="text-emerald-500" />
+    </header>
+  );
+}
+```
+
+### Pattern 3: Direct Component Prop (Zero Registration)
+
+Pass the icon component directly to `<SolarIcon icon={...} />`:
+
+```tsx
+import React from 'react';
+import { SolarIcon } from '@icon-by-solar/react';
+import { SolarHome } from '@icon-by-solar/react/icons/home';
+
+export function QuickIcon() {
+  return <SolarIcon icon={SolarHome} variant="bold-duotone" size={28} />;
+}
+```
+
+### Pattern 4: Full Catalog Bundle (For Admin & CMS Icon Pickers)
+
+If your app genuinely requires dynamic runtime access to all 1,246 icons (e.g. a visual icon picker in an admin panel):
+
+```tsx
+import React from 'react';
+import { SolarIcon } from '@icon-by-solar/react/all';
+
+export function DynamicIconPicker({ selectedIconName }: { selectedIconName: string }) {
+  // All 1,246 icons are pre-registered
+  return <SolarIcon name={selectedIconName} variant="outline" size={24} />;
+}
+```
+
 ---
 
 ## Props Reference
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `name` | `IconName` | *(Required)* | Canonical name or alias (e.g. `'home'`, `'camera'`, `'chat-square-arrow'`). |
+| `name` | `IconName` | `undefined` | Canonical name or alias (e.g. `'home'`, `'bell-bing'`, `'chat-square-arrow'`). |
+| `icon` | `SolarIconComponent` | `undefined` | Direct icon component for 100% tree-shaking with zero registration. |
 | `variant` | `'outline' \| 'bold' \| 'bold-duotone'` | `'outline'` | Style variant of the icon. |
 | `size` | `number \| string` | `24` | Width and height in px or CSS units. |
 | `color` | `string` | `'currentColor'` | Primary color. Set to `'original'` to preserve raw SVG export colors. |
@@ -100,7 +135,7 @@ export function Navigation() {
 | `secondaryOpacity` | `number \| string` | *(from SVG)* | Custom opacity override for duotone secondary elements (e.g. `0.4`). |
 | `category` | `string` | `undefined` | Optional category scope for disambiguating duplicate names. |
 | `title` | `string` | `undefined` | Accessible SVG `<title>` element. |
-| `fallback` | `React.ReactNode` | `null` | Rendered if the icon name is not found. |
+| `fallback` | `React.ReactNode` | `null` | Rendered if the icon name is not registered or found. |
 | `className` | `string` | `undefined` | CSS class string (e.g. Tailwind utility classes). |
 
 ---

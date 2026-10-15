@@ -4,6 +4,7 @@ import React from 'react';
 export type IconVariant = 'outline' | 'bold' | 'bold-duotone' | 'bold_duotone';
 
 export type IconNode = [tag: string, attrs: Record<string, string | number>];
+export type IconNodeMap = Record<string, IconNode[]>;
 
 export type CanonicalIconName = 
   | '4k'
@@ -1261,8 +1262,15 @@ export interface SolarIconProps extends React.SVGAttributes<SVGSVGElement> {
   /**
    * Name of the icon (e.g. 'home', 'bell-bing', 'chat-square-arrow').
    * Fully autocomplete-friendly with canonical names and aliases.
+   * Can be used when the icon is registered via registerIcons() or @icon-by-solar/react/all.
    */
-  name: IconName;
+  name?: IconName;
+
+  /**
+   * Direct icon component or icon node map (100% tree-shakeable with zero registration).
+   * @example <SolarIcon icon={SolarHome} variant="outline" size={24} />
+   */
+  icon?: any;
 
   /**
    * Visual style variant.

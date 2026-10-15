@@ -8,11 +8,22 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./all": {
+      "types": "./dist/all.d.ts",
+      "import": "./dist/all.js",
+      "require": "./dist/all.cjs"
+    },
+    "./icons": {
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.js",
+      "require": "./dist/icons/index.cjs"
     },
     "./icons/*": {
       "types": "./dist/icons/*.d.ts",

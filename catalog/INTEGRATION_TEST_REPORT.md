@@ -58,14 +58,14 @@ npm test         # Node SSR render test
    * *Error:* `Unknown file extension ".jsx"` saat file pengujian diimpor langsung oleh Node runner.
    * *Perbaikan:* Menulis `test-render.js` menggunakan API `React.createElement` standar dan menjalankan Vite build terpisah untuk memvalidasi kompilasi JSX/ESM.
 
-### D. Hasil Pengujian Aktual
+### D. Hasil Pengujian Aktual (Sesudah Optimasi)
 * **Vite Production Bundle:**
   ```text
   vite v5.4.21 building for production...
-  transforming... 38 modules transformed.
-  dist/index.html                    0.24 kB │ gzip:     0.19 kB
-  dist/assets/index-BuT5nQYX.js  7,213.48 kB │ gzip: 1,598.42 kB
-  ✓ built in 2.21s
+  transforming... 40 modules transformed.
+  dist/index.html                  0.24 kB │ gzip:  0.19 kB
+  dist/assets/index-Us4tVnzG.js  166.49 kB │ gzip: 54.73 kB
+  ✓ built in 716ms
   ```
 * **Render Test Output:**
   ```text
@@ -80,7 +80,39 @@ npm test         # Node SSR render test
 
 ---
 
-## 4. Pengujian Integrasi 2: Laravel Blade Consumer Project
+## 4. Analisis & Hasil Optimasi Bundle React (Tree-Shaking)
+
+### A. Investigasi Akar Penyebab (Root Cause Analysis)
+1. **Objek Tunggal Statis:** Pada implementasi awal, komponen `SolarIcon.tsx` mengimpor file `data.ts` yang berisi seluruh 1.246 ikon dalam 3 varian (total 3.738 representasi node SVG) dalam satu objek JavaScript raksasa (`iconDefinitions`).
+2. **Keterbatasan Tree-Shaking Objek Statis:** Bundler seperti Rollup dan Vite melakukan tree-shaking pada tingkat *ES Module Named Exports*, bukan pada properti objek dinamis (`iconDefinitions[name]`). Ketika aplikasi mengimpor `SolarIcon`, bundler terpaksa menyertakan seluruh objek data ke dalam bundle JS, menghasilkan bundle berukuran **7.213,48 kB** (uncompressed) dan **1.598,42 kB** (gzip).
+
+### B. Solusi Arsitektur Modular
+1. **Pemisahan Core & Data:**
+   - Entry utama `@icon-by-solar/react` (`src/index.ts`) kini hanya mengekspor komponen lightweight `SolarIcon`, fungsi `registerIcons()`, dan type definitions tanpa mengimpor `data.ts`.
+   - Entry terpisah `@icon-by-solar/react/all` disediakan khusus untuk aplikasi yang membutuhkan seluruh 1.246 ikon secara dinamis (misalnya visual icon picker CMS).
+2. **Modul Per-Ikon dengan Pure Annotations:**
+   - Generator `build_react_icons.py` memproduksi 1.246 modul individual di `dist/icons/[slug].js` dengan anotasi `/* @__PURE__ */` dan `"sideEffects": false` pada `package.json`.
+3. **Pola Registrasi Fleksibel:**
+   - Mendukung seleksi ikon via `registerIcons([SolarHome, SolarChatSquareArrow])` untuk `<SolarIcon name="..." />`.
+   - Mendukung passing ikon langsung: `<SolarIcon icon={SolarHome} />`.
+   - Mendukung impor selektif langsung: `<HomeOutline />`, `<HomeBold />`, `<HomeBoldDuotone />`.
+
+### C. Tabel Perbandingan Sebelum vs Sesudah Optimasi
+
+| Parameter | Sebelum Optimasi | Sesudah Optimasi | Perubahan (%) |
+| :--- | :---: | :---: | :---: |
+| **Vite Consumer JS Bundle (Raw)** | **7.213,48 kB** (7,21 MB) | **166,49 kB** | 📉 **-97,69%** |
+| **Vite Consumer JS Bundle (Gzip)** | **1.598,42 kB** (1,60 MB) | **54,73 kB** | 📉 **-96,58%** |
+| **Waktu Build Vite** | 2.210 ms | 716 ms | ⚡ **3x Lebih Cepat** |
+| **Dukungan SSR & Hydration** | Ya | Ya | Tetap 100% Valid |
+| **Selective Imports** | Bekerja | Bekerja | 100% Tree-Shakeable |
+| **Ikon Koleksi Lengkap** | Tersedia | Tersedia (`/all`) | 1.246 Ikon Utuh |
+
+> *Catatan:* Ukuran 166,49 kB sesudah optimasi sudah mencakup seluruh runtime React dan ReactDOM (yang berukuran ~140 kB). Porsi ikon yang disertakan hanya sekitar ~20 kB.
+
+---
+
+## 5. Pengujian Integrasi 2: Laravel Blade Consumer Project
 
 ### A. Lokasi & Konfigurasi
 * **Direktori:** [`tests/integration/laravel-consumer/`](file:///Users/macbookpro/Documents/DEVELOPER/icon-by-solar/tests/integration/laravel-consumer)
@@ -148,7 +180,7 @@ php test-blade-consumer.php
 
 ---
 
-## 5. Sinkronisasi Dokumentasi & README
+## 6. Sinkronisasi Dokumentasi & README
 
 Pemeriksaan silang dilakukan terhadap:
 * [`README.md`](file:///Users/macbookpro/Documents/DEVELOPER/icon-by-solar/README.md) (Utama)
@@ -163,7 +195,7 @@ Pemeriksaan silang dilakukan terhadap:
 
 ---
 
-## 6. Status Kesiapan & Batasan
+## 7. Status Kesiapan & Batasan
 
 | Integrasi | Status | Catatan Kesiapan |
 | :--- | :---: | :--- |

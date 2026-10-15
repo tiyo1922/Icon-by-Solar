@@ -1,9 +1,13 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { SolarIcon, IconBySolar } from '@icon-by-solar/react';
-import { HomeOutline, HomeBold, HomeBoldDuotone } from '@icon-by-solar/react/icons/home';
+import { SolarIcon, IconBySolar, registerIcons } from '@icon-by-solar/react';
+import { SolarHome, HomeOutline, HomeBold, HomeBoldDuotone } from '@icon-by-solar/react/icons/home';
+import { SolarChatSquareArrow } from '@icon-by-solar/react/icons/chat-square-arrow';
 
 console.log('Running React Consumer Integration Test...');
+
+// Register only the icons needed
+registerIcons([SolarHome, SolarChatSquareArrow]);
 
 // 1. Universal Component Tests
 const outlineHtml = renderToStaticMarkup(

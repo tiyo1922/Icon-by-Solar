@@ -1,4 +1,20 @@
-// Official React package for Icon by Solar
-export { SolarIcon, IconBySolar, Icon, resolveIcon } from './components/SolarIcon';
-export type { SolarIconProps, IconName, IconVariant, CanonicalIconName, IconNode } from './types';
-export { iconAliases, iconDefinitions } from './data';
+// Official React package for Icon by Solar — Lightweight Modular Core
+export {
+  SolarIcon,
+  IconBySolar,
+  Icon,
+  registerIcons,
+  resolveIcon,
+  renderIconNodes,
+  iconRegistry,
+  aliasRegistry
+} from './components/SolarIcon';
+
+export type {
+  SolarIconProps,
+  IconName,
+  IconVariant,
+  CanonicalIconName,
+  IconNode,
+  IconNodeMap
+} from './types';
