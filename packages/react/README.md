@@ -30,18 +30,39 @@ To prevent bundling all 1,246 icons (~7.2 MB) into applications that only need a
 
 ---
 
+## Environment Support
+
+- **React:** `>=16.8.0 || ^18.0.0 || ^19.0.0`
+- **Node.js:** `>=18.0.0`
+- **TypeScript:** `>=4.7.0` (Full definitions included)
+- **Bundlers:** Vite, Next.js, Remix, Webpack 5, Rollup, Parcel, esbuild
+
+---
+
 ## Installation
 
+### Official Registry (After npm Publication)
+
 ```bash
-# Inside your React project
+# npm
 npm install @icon-by-solar/react
-# or
+
+# yarn
 yarn add @icon-by-solar/react
-# or
+
+# pnpm
 pnpm add @icon-by-solar/react
 ```
 
-*(For local development/monorepos, install via file path: `npm install /path/to/icon-by-solar/packages/react`)*
+### Local Workspace / Monorepo / Pre-Publication
+
+```bash
+# Install directly from local package directory:
+npm install /path/to/icon-by-solar/packages/react
+
+# Or install from packed tarball:
+npm install /path/to/icon-by-solar-react-1.0.0.tgz
+```
 
 ---
 

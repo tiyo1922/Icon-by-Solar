@@ -121,7 +121,17 @@ icon-by-solar/
 
 ## 5. Instalasi & Penggunaan: Package React
 
-### Instalasi Lokal / Monorepo
+### Instalasi Resmi (Setelah Publikasi npm)
+
+```bash
+npm install @icon-by-solar/react
+# atau
+yarn add @icon-by-solar/react
+# atau
+pnpm add @icon-by-solar/react
+```
+
+### Instalasi Lokal / Monorepo / Pra-Publikasi
 
 ```bash
 # Dari root project React Anda:
@@ -214,7 +224,13 @@ export function DynamicIconPicker({ iconName }: { iconName: string }) {
 
 ## 6. Instalasi & Penggunaan: Package Laravel Blade
 
-### Instalasi Lokal via Composer
+### Instalasi Resmi (Setelah Publikasi Packagist)
+
+```bash
+composer require icon-by-solar/blade
+```
+
+### Instalasi Lokal via Composer (Pra-Publikasi)
 
 Tambahkan konfigurasi `path` repository pada file `composer.json` project Laravel Anda:
 
@@ -222,7 +238,10 @@ Tambahkan konfigurasi `path` repository pada file `composer.json` project Larave
 "repositories": [
     {
         "type": "path",
-        "url": "/path/to/icon-by-solar/packages/laravel-blade"
+        "url": "/path/to/icon-by-solar/packages/laravel-blade",
+        "options": {
+            "symlink": true
+        }
     }
 ]
 ```
@@ -230,7 +249,7 @@ Tambahkan konfigurasi `path` repository pada file `composer.json` project Larave
 Kemudian jalankan:
 
 ```bash
-composer require icon-by-solar/blade
+composer require icon-by-solar/blade:@dev
 ```
 
 ### Target Penggunaan Blade
@@ -391,8 +410,8 @@ python3 tools/build_catalog.py
 python3 tools/build_react_package.py
 npm --prefix packages/react run build
 
-# 4. Salin manifest terbaru ke package Blade
-cp manifest.json packages/laravel-blade/resources/manifest.json
+# 4. Sinkronisasi aset SVG mandiri & manifest ke package Blade
+python3 tools/sync_blade_assets.py
 
 # 5. Jalankan validasi
 ./tests/run_all_tests.sh
@@ -408,10 +427,26 @@ cp manifest.json packages/laravel-blade/resources/manifest.json
 
 ---
 
-## 14. Informasi Distribusi & Konfigurasi Repository
+## 14. Informasi Distribusi Resmi & Strategi Rilis
 
-- **Status Publikasi:** Package ini dirancang siap pakai untuk monorepo / repositori lokal (path repository). Package **belum dipublikasikan** ke npm public registry atau Packagist publik.
-- **Persiapan Publikasi Publik:** Sebelum menerbitkan package ke publik, pastikan hak cipta atribusi CC BY 4.0 dicantumkan dengan jelas sesuai panduan di bawah.
+Proyek ini telah dikonfigurasi dan dipersiapkan secara penuh untuk distribusi resmi ke registry publik:
+
+### 1. npm Package: `@icon-by-solar/react`
+- **Target Registry:** [npmjs.com](https://www.npmjs.com/package/@icon-by-solar/react)
+- **Perintah Instalasi Resmi:** `npm install @icon-by-solar/react`
+- **Status Metadata:** `"publishConfig": { "access": "public" }`, `"sideEffects": false`, TypeScript `.d.ts`, ESM & CJS builds.
+- **Ukuran Tarball Pack:** ~9.9 MB terkompresi (berisi seluruh 1.246 modul per-ikon + core + type definitions).
+
+### 2. Packagist Package: `icon-by-solar/blade`
+- **Target Registry:** [packagist.org](https://packagist.org/packages/icon-by-solar/blade)
+- **Perintah Instalasi Resmi:** `composer require icon-by-solar/blade`
+- **Strategi Distribusi Monorepo:** Karena Packagist mengindeks repositori Git dari root `composer.json`, subdirektori `packages/laravel-blade` dirilis ke repositori subtree mandiri (misal: `https://github.com/tiyo1922/icon-by-solar-blade`).
+- **Aset Mandiri:** Seluruh 3.738 SVG dan manifest disertakan langsung di dalam paket tanpa ketergantungan pada monorepo induk.
+
+> 📖 **Panduan Rilis & Publikasi Lengkap:**
+> Langkah-langkah detail, perintah `git subtree split`, tagging SemVer, dan panduan publish dapat dilihat pada dokumen:
+> [**`docs/PUBLISHING.md`**](file:///Users/macbookpro/Documents/DEVELOPER/icon-by-solar/docs/PUBLISHING.md)
+> Catatan rilis versi dapat dilihat pada [**`CHANGELOG.md`**](file:///Users/macbookpro/Documents/DEVELOPER/icon-by-solar/CHANGELOG.md).
 
 ---
 
