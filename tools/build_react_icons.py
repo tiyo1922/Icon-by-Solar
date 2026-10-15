@@ -59,6 +59,46 @@ def main():
             svg_text = svg_file.read_text(encoding='utf-8')
             var_data[variant_key] = parse_svg_elements(svg_text)
             
+        is_digit_start = pascal[0].isdigit() if pascal else False
+        safe_pascal = f"Icon{pascal}" if is_digit_start else pascal
+
+        if is_digit_start:
+            extra_esm = f"""export const {safe_pascal}Outline = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
+}});
+
+export const {safe_pascal}Bold = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
+}});
+
+export const {safe_pascal}BoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
+}});
+
+export const {safe_pascal} = Solar{pascal};
+"""
+            if canonical == '4k':
+                extra_esm += f"""export const FourKOutline = {safe_pascal}Outline;
+export const FourKBold = {safe_pascal}Bold;
+export const FourKBoldDuotone = {safe_pascal}BoldDuotone;
+export const FourK = Solar{pascal};
+"""
+        else:
+            extra_esm = f"""export const {pascal}Outline = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
+}});
+
+export const {pascal}Bold = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
+}});
+
+export const {pascal}BoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
+}});
+
+export const {pascal} = Solar{pascal};
+"""
+
         # ESM (.js)
         esm_code = f"""import React from 'react';
 
@@ -66,7 +106,7 @@ export const iconName = '{canonical}';
 export const category = '{info['category']}';
 export const nodes = {json.dumps(var_data)};
 
-function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {{
+function renderNodes(variantNodes, variant, color = 'currentColor', secondaryColor, secondaryOpacity) {{
   return variantNodes.map(([tag, attrs], index) => {{
     const computed = {{ ...attrs }};
     if (color !== 'original' && color !== 'source') {{
@@ -75,7 +115,7 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
         computed.fill = secondaryColor || color;
       }} else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {{
         const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
-        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+        if (!(variant === 'bold' && isWhite && variantNodes.length > 1)) computed.fill = color;
       }}
       if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
     }}
@@ -109,38 +149,95 @@ export const Solar{pascal} = /* @__PURE__ */ React.forwardRef((props, ref) => {{
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }}, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+  }}, title && React.createElement('title', null, title), ...renderNodes(variantNodes, normVariant, color, secondaryColor, secondaryOpacity));
 }});
 
 Solar{pascal}.nodes = nodes;
 Solar{pascal}.iconName = iconName;
 Solar{pascal}.category = category;
 
-export const {pascal}Outline = /* @__PURE__ */ React.forwardRef((props, ref) => {{
-  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
-}});
-
-export const {pascal}Bold = /* @__PURE__ */ React.forwardRef((props, ref) => {{
-  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
-}});
-
-export const {pascal}BoldDuotone = /* @__PURE__ */ React.forwardRef((props, ref) => {{
-  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
-}});
-
-export const {pascal} = Solar{pascal};
-export default Solar{pascal};
+{extra_esm}export default Solar{pascal};
 """
         (dist_icons / f"{canonical}.js").write_text(esm_code, encoding='utf-8')
 
         # CJS (.cjs)
+        if is_digit_start:
+            extra_cjs = f"""const {safe_pascal}Outline = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
+}});
+
+const {safe_pascal}Bold = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
+}});
+
+const {safe_pascal}BoldDuotone = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
+}});
+
+const {safe_pascal} = Solar{pascal};
+"""
+            if canonical == '4k':
+                extra_cjs += f"""const FourKOutline = {safe_pascal}Outline;
+const FourKBold = {safe_pascal}Bold;
+const FourKBoldDuotone = {safe_pascal}BoldDuotone;
+const FourK = Solar{pascal};
+"""
+            exports_cjs = f"""module.exports = {{
+  iconName,
+  category,
+  nodes,
+  Solar{pascal},
+  {safe_pascal},
+  {safe_pascal}Outline,
+  {safe_pascal}Bold,
+  {safe_pascal}BoldDuotone,"""
+            if canonical == '4k':
+                exports_cjs += f"""
+  FourK,
+  FourKOutline,
+  FourKBold,
+  FourKBoldDuotone,
+  '{canonical}': Solar{pascal},
+  '{canonical}Outline': {safe_pascal}Outline,
+  '{canonical}Bold': {safe_pascal}Bold,
+  '{canonical}BoldDuotone': {safe_pascal}BoldDuotone,"""
+            exports_cjs += f"""
+  default: Solar{pascal}
+}};"""
+        else:
+            extra_cjs = f"""const {pascal}Outline = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
+}});
+
+const {pascal}Bold = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
+}});
+
+const {pascal}BoldDuotone = React.forwardRef((props, ref) => {{
+  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
+}});
+
+const {pascal} = Solar{pascal};
+"""
+            exports_cjs = f"""module.exports = {{
+  iconName,
+  category,
+  nodes,
+  Solar{pascal},
+  {pascal},
+  {pascal}Outline,
+  {pascal}Bold,
+  {pascal}BoldDuotone,
+  default: Solar{pascal}
+}};"""
+
         cjs_code = f"""const React = require('react');
 
 const iconName = '{canonical}';
 const category = '{info['category']}';
 const nodes = {json.dumps(var_data)};
 
-function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {{
+function renderNodes(variantNodes, variant, color = 'currentColor', secondaryColor, secondaryOpacity) {{
   return variantNodes.map(([tag, attrs], index) => {{
     const computed = Object.assign({{}}, attrs);
     if (color !== 'original' && color !== 'source') {{
@@ -149,7 +246,7 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
         computed.fill = secondaryColor || color;
       }} else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {{
         const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
-        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+        if (!(variant === 'bold' && isWhite && variantNodes.length > 1)) computed.fill = color;
       }}
       if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
     }}
@@ -182,42 +279,38 @@ const Solar{pascal} = React.forwardRef((props, ref) => {{
     style: Object.assign({{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}, style),
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation'
-  }}, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+  }}, rest), title && React.createElement('title', null, title), ...renderNodes(variantNodes, normVariant, color, secondaryColor, secondaryOpacity));
 }});
 
 Solar{pascal}.nodes = nodes;
 Solar{pascal}.iconName = iconName;
 Solar{pascal}.category = category;
 
-const {pascal}Outline = React.forwardRef((props, ref) => {{
-  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'outline' }}, props));
-}});
-
-const {pascal}Bold = React.forwardRef((props, ref) => {{
-  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold' }}, props));
-}});
-
-const {pascal}BoldDuotone = React.forwardRef((props, ref) => {{
-  return React.createElement(Solar{pascal}, Object.assign({{ ref, variant: 'bold-duotone' }}, props));
-}});
-
-const {pascal} = Solar{pascal};
-
-module.exports = {{
-  iconName,
-  category,
-  nodes,
-  Solar{pascal},
-  {pascal},
-  {pascal}Outline,
-  {pascal}Bold,
-  {pascal}BoldDuotone,
-  default: Solar{pascal}
-}};
+{extra_cjs}
+{exports_cjs}
 """
         (dist_icons / f"{canonical}.cjs").write_text(cjs_code, encoding='utf-8')
 
         # Types (.d.ts)
+        if is_digit_start:
+            extra_dts = f"""export declare const Solar{pascal}: SolarIconComponent;
+export declare const {safe_pascal}Outline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {safe_pascal}Bold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {safe_pascal}BoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {safe_pascal}: SolarIconComponent;"""
+            if canonical == '4k':
+                extra_dts += f"""
+export declare const FourKOutline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const FourKBold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const FourKBoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const FourK: SolarIconComponent;"""
+        else:
+            extra_dts = f"""export declare const Solar{pascal}: SolarIconComponent;
+export declare const {pascal}Outline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {pascal}Bold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {pascal}BoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
+export declare const {pascal}: SolarIconComponent;"""
+
         dts_code = f"""import React from 'react';
 import {{ IconNode, IconVariant }} from '../types';
 
@@ -248,11 +341,7 @@ export interface SolarIconComponent extends React.ForwardRefExoticComponent<Mult
   category: string;
 }}
 
-export declare const Solar{pascal}: SolarIconComponent;
-export declare const {pascal}Outline: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
-export declare const {pascal}Bold: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
-export declare const {pascal}BoldDuotone: React.ForwardRefExoticComponent<SingleVariantIconProps & React.RefAttributes<SVGSVGElement>>;
-export declare const {pascal}: SolarIconComponent;
+{extra_dts}
 export default Solar{pascal};
 """
         (dist_icons / f"{canonical}.d.ts").write_text(dts_code, encoding='utf-8')

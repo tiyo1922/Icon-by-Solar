@@ -89,6 +89,13 @@ export function Navigation() {
 }
 ```
 
+> **Note on Digit-Prefixed Icons (e.g., `4k`):**
+> JavaScript identifiers cannot start with numbers. For the `4k` icon module, use the standard `Icon` prefix or semantic name:
+> ```tsx
+> import { Icon4kOutline, FourKOutline, Solar4k } from '@icon-by-solar/react/icons/4k';
+> ```
+
+
 ### Pattern 2: Tree-Shakeable `<SolarIcon />` with Selective Registration
 
 If you prefer using `<SolarIcon name="..." />` or dynamic name switching while maintaining optimal bundle size, register only the icons your app uses:

@@ -4,7 +4,7 @@ export const iconName = 'sticker-circle';
 export const category = 'Faces, Emotions, Stickers';
 export const nodes = {"bold": [["path", {"d": "M2 12C2 6.47715 6.47715 2 12 2C17.013 2 21.1645 5.68873 21.8882 10.5L21.686 10.4999C19.1965 10.4991 17.5598 10.4986 16.1926 10.977C13.751 11.8313 11.8313 13.751 10.977 16.1926C10.4986 17.5598 10.4991 19.1965 10.4999 21.686L10.5 21.8882C5.68873 21.1645 2 17.013 2 12Z", "fill": "#1C274C"}], ["path", {"d": "M21.2424 13.7083L13.7083 21.2424C13.6419 21.3087 13.5725 21.3718 13.5004 21.431C13.448 21.4741 13.3943 21.5151 13.3392 21.554C12.9462 21.8314 12.4858 22 12 22C12 21.4484 12 20.9513 12.003 20.5C12.0153 18.6662 12.0776 17.5889 12.3928 16.688C13.0964 14.6773 14.6773 13.0964 16.688 12.3928C17.5889 12.0776 18.6662 12.0153 20.5 12.003C20.9513 12 21.4484 12 22 12C22 12.4858 21.8314 12.9462 21.554 13.3392C21.5151 13.3943 21.4741 13.448 21.431 13.5004C21.3718 13.5725 21.3087 13.6419 21.2424 13.7083Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"d": "M21.2424 13.7083L13.7083 21.2424C13.6419 21.3087 13.5725 21.3718 13.5004 21.431C13.448 21.4741 13.3943 21.5151 13.3392 21.554C12.9462 21.8314 12.4858 22 12 22C12 21.4484 12 20.9513 12.003 20.5C12.0153 18.6662 12.0776 17.5889 12.3928 16.688C13.0964 14.6773 14.6773 13.0964 16.688 12.3928C17.5889 12.0776 18.6662 12.0153 20.5 12.003C20.9513 12 21.4484 12 22 12C22 12.4858 21.8314 12.9462 21.554 13.3392C21.5151 13.3943 21.4741 13.448 21.431 13.5004C21.3718 13.5725 21.3087 13.6419 21.2424 13.7083Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M12 2C17.5228 2 22 6.47715 22 12C21.4484 12 20.9513 12 20.5 12.003C18.6662 12.0153 17.5889 12.0776 16.688 12.3928C14.6773 13.0964 13.0964 14.6773 12.3928 16.688C12.0776 17.5889 12.0153 18.6662 12.003 20.5C12 20.9513 12 21.4484 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 16.8562 6.49219 20.8383 11.2501 21.22C11.2524 18.9634 11.2837 17.587 11.6849 16.4403C12.4639 14.2142 14.2142 12.4639 16.4403 11.6849C17.587 11.2837 18.9634 11.2524 21.22 11.2501C20.8383 6.49219 16.8562 2.75 12 2.75ZM21.0404 12.751C18.8516 12.7573 17.7912 12.8014 16.9358 13.1007C15.1405 13.7289 13.7289 15.1405 13.1007 16.9358C12.8014 17.7912 12.7573 18.8516 12.751 21.0404C12.9011 20.9552 13.045 20.845 13.1779 20.712L20.712 13.1779C20.845 13.045 20.9552 12.9011 21.0404 12.751ZM1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 12.8843 22.3423 13.669 21.7727 14.2386L14.2386 21.7727C13.669 22.3423 12.8843 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12Z", "fill": "white"}]]};
 
-function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+function renderNodes(variantNodes, variant, color = 'currentColor', secondaryColor, secondaryOpacity) {
   return variantNodes.map(([tag, attrs], index) => {
     const computed = { ...attrs };
     if (color !== 'original' && color !== 'source') {
@@ -13,7 +13,7 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
         computed.fill = secondaryColor || color;
       } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
         const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
-        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+        if (!(variant === 'bold' && isWhite && variantNodes.length > 1)) computed.fill = color;
       }
       if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
     }
@@ -47,7 +47,7 @@ export const SolarStickerCircle = /* @__PURE__ */ React.forwardRef((props, ref) 
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, normVariant, color, secondaryColor, secondaryOpacity));
 });
 
 SolarStickerCircle.nodes = nodes;

@@ -3,6 +3,8 @@ import { renderToStaticMarkup } from '../../packages/react/node_modules/react-do
 import { SolarIcon, registerIcons, resolveIcon } from '../../packages/react/dist/index.js';
 import { SolarHome, HomeOutline, HomeBoldDuotone } from '../../packages/react/dist/icons/home.js';
 import { SolarChatSquareArrow } from '../../packages/react/dist/icons/chat-square-arrow.js';
+import { SolarLightning } from '../../packages/react/dist/icons/lightning.js';
+import { SolarLightbulb } from '../../packages/react/dist/icons/lightbulb.js';
 import { SolarIcon as AllSolarIcon, resolveIcon as allResolveIcon } from '../../packages/react/dist/all.js';
 
 console.log('Testing @icon-by-solar/react...');
@@ -85,5 +87,58 @@ if (!nodes || nodes.length === 0) {
   throw new Error('Test 8 Failed: Failed to resolve alias with double space.');
 }
 console.log('✅ Test 8 Passed: Double-space anomaly resolved to canonical icon nodes.');
+
+import { createRequire } from 'module';
+import { Solar4k, Icon4k, Icon4kOutline, FourK, FourKOutline } from '../../packages/react/dist/icons/4k.js';
+
+// 9. Outline source files contain white fills; standalone components must inherit text color
+const outlineHtml = renderToStaticMarkup(
+  React.createElement(SolarLightning, { variant: 'outline' })
+);
+if (!outlineHtml.includes('fill="currentColor"') || outlineHtml.includes('fill="white"')) {
+  throw new Error(`Test 9 Failed: Outline icon did not inherit currentColor: ${outlineHtml}`);
+}
+console.log('✅ Test 9 Passed: Outline white source fills render as currentColor.');
+
+// 10. Bold white cutouts remain white after normalizing other fills
+const boldHtml = renderToStaticMarkup(
+  React.createElement(SolarLightbulb, { variant: 'bold' })
+);
+if (!boldHtml.includes('fill="white"')) {
+  throw new Error(`Test 10 Failed: Bold white cutout was recolored: ${boldHtml}`);
+}
+console.log('✅ Test 10 Passed: Bold white cutout remains white.');
+
+// 11. Regression test: Digit-prefixed icon identifiers (4k) in ESM
+if (typeof Solar4k !== 'object' && typeof Solar4k !== 'function') {
+  throw new Error('Test 11 Failed: Solar4k is not a valid component.');
+}
+if (typeof Icon4kOutline !== 'object' && typeof Icon4kOutline !== 'function') {
+  throw new Error('Test 11 Failed: Icon4kOutline is not a valid component.');
+}
+if (typeof FourKOutline !== 'object' && typeof FourKOutline !== 'function') {
+  throw new Error('Test 11 Failed: FourKOutline is not a valid component.');
+}
+const html4k = renderToStaticMarkup(React.createElement(Icon4kOutline, { size: 24 }));
+if (!html4k.includes('viewBox="0 0 24 24"') || !html4k.includes('fill="currentColor"') || html4k.includes('fill="white"')) {
+  throw new Error(`Test 11 Failed: Icon4kOutline rendered invalid SVG or white fill: ${html4k}`);
+}
+const htmlFourK = renderToStaticMarkup(React.createElement(FourKOutline, { size: 24 }));
+if (!htmlFourK.includes('viewBox="0 0 24 24"') || !htmlFourK.includes('fill="currentColor"')) {
+  throw new Error(`Test 11 Failed: FourKOutline rendered invalid SVG: ${htmlFourK}`);
+}
+console.log('✅ Test 11 Passed: Digit-prefixed icon 4k exports (Solar4k, Icon4k*, FourK*) render correctly in ESM.');
+
+// 12. Regression test: Digit-prefixed icon identifiers (4k) in CommonJS
+const require = createRequire(import.meta.url);
+const cjs4k = require('../../packages/react/dist/icons/4k.cjs');
+if (!cjs4k.Solar4k || !cjs4k.Icon4kOutline || !cjs4k.FourKOutline || !cjs4k['4kOutline']) {
+  throw new Error('Test 12 Failed: CommonJS exports missing expected 4k variants.');
+}
+const html4kCjs = renderToStaticMarkup(React.createElement(cjs4k.Icon4kOutline, { size: 24 }));
+if (!html4kCjs.includes('viewBox="0 0 24 24"') || !html4kCjs.includes('fill="currentColor"')) {
+  throw new Error(`Test 12 Failed: CJS Icon4kOutline rendered invalid SVG: ${html4kCjs}`);
+}
+console.log('✅ Test 12 Passed: CommonJS 4k module exports valid identifiers and safely-quoted aliases.');
 
 console.log('\n🎉 ALL REACT COMPONENT TESTS PASSED SUCCESSFULLY!');

@@ -4,7 +4,7 @@ export const iconName = 'key-minimalistic-2';
 export const category = 'Security';
 export const nodes = {"bold": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M15 16C18.866 16 22 12.866 22 9C22 5.13401 18.866 2 15 2C11.134 2 8 5.13401 8 9C8 10.6628 8.57979 12.1902 9.54824 13.3911L3.96995 18.9694L2.96967 19.9697C2.67678 20.2626 2.67678 20.7374 2.96967 21.0303C3.26256 21.3232 3.73744 21.3232 4.03033 21.0303L4.5 20.5607L5.46967 21.5303C5.76256 21.8232 6.23744 21.8232 6.53033 21.5303C6.82322 21.2374 6.82322 20.7626 6.53033 20.4697L5.56066 19.5L6.5 18.5607L7.46967 19.5303C7.76256 19.8232 8.23744 19.8232 8.53033 19.5303C8.82322 19.2374 8.82322 18.7626 8.53033 18.4697L7.56066 17.5L10.6089 14.4518C11.8098 15.4202 13.3372 16 15 16ZM15 11C16.1046 11 17 10.1046 17 9C17 7.89543 16.1046 7 15 7C13.8954 7 13 7.89543 13 9C13 10.1046 13.8954 11 15 11Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M15 16C18.866 16 22 12.866 22 9C22 5.13401 18.866 2 15 2C11.134 2 8 5.13401 8 9C8 12.866 11.134 16 15 16ZM15 11C16.1046 11 17 10.1046 17 9C17 7.89543 16.1046 7 15 7C13.8954 7 13 7.89543 13 9C13 10.1046 13.8954 11 15 11Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M10.6089 14.4513C10.2187 14.1366 9.86294 13.7808 9.54824 13.3906L2.96967 19.9692C2.67678 20.2621 2.67678 20.737 2.96967 21.0299C3.26256 21.3228 3.73744 21.3228 4.03033 21.0299L4.5 20.5602L5.46967 21.5299C5.76256 21.8228 6.23744 21.8228 6.53033 21.5299C6.82322 21.237 6.82322 20.7621 6.53033 20.4692L5.56066 19.4995L6.5 18.5602L7.46967 19.5299C7.76256 19.8228 8.23744 19.8228 8.53033 19.5299C8.82322 19.237 8.82322 18.7621 8.53033 18.4692L7.56066 17.4995L10.6089 14.4513Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M15 2.75C11.5482 2.75 8.75 5.54822 8.75 9C8.75 12.4518 11.5482 15.25 15 15.25C18.4518 15.25 21.25 12.4518 21.25 9C21.25 5.54822 18.4518 2.75 15 2.75ZM7.25 9C7.25 4.71979 10.7198 1.25 15 1.25C19.2802 1.25 22.75 4.71979 22.75 9C22.75 13.2802 19.2802 16.75 15 16.75C13.129 16.75 11.4129 16.087 10.0737 14.9831C10.0601 14.9993 10.0456 15.0151 10.0303 15.0303L7.56066 17.5L8.53033 18.4697C8.82322 18.7626 8.82322 19.2374 8.53033 19.5303C8.23744 19.8232 7.76256 19.8232 7.46967 19.5303L6.5 18.5607L5.56066 19.5L6.53033 20.4697C6.82322 20.7626 6.82322 21.2374 6.53033 21.5303C6.23744 21.8232 5.76256 21.8232 5.46967 21.5303L4.5 20.5607L4.03033 21.0303C3.73744 21.3232 3.26256 21.3232 2.96967 21.0303C2.67678 20.7374 2.67678 20.2626 2.96967 19.9697L3.96937 18.97L8.96967 13.9697C8.98493 13.9544 9.00069 13.9399 9.01688 13.9263C7.913 12.5871 7.25 10.871 7.25 9ZM15 7.75C14.3096 7.75 13.75 8.30964 13.75 9C13.75 9.69036 14.3096 10.25 15 10.25C15.6904 10.25 16.25 9.69036 16.25 9C16.25 8.30964 15.6904 7.75 15 7.75ZM12.25 9C12.25 7.48122 13.4812 6.25 15 6.25C16.5188 6.25 17.75 7.48122 17.75 9C17.75 10.5188 16.5188 11.75 15 11.75C13.4812 11.75 12.25 10.5188 12.25 9Z", "fill": "white"}]]};
 
-function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+function renderNodes(variantNodes, variant, color = 'currentColor', secondaryColor, secondaryOpacity) {
   return variantNodes.map(([tag, attrs], index) => {
     const computed = { ...attrs };
     if (color !== 'original' && color !== 'source') {
@@ -13,7 +13,7 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
         computed.fill = secondaryColor || color;
       } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
         const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
-        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+        if (!(variant === 'bold' && isWhite && variantNodes.length > 1)) computed.fill = color;
       }
       if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
     }
@@ -47,7 +47,7 @@ export const SolarKeyMinimalistic2 = /* @__PURE__ */ React.forwardRef((props, re
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, normVariant, color, secondaryColor, secondaryOpacity));
 });
 
 SolarKeyMinimalistic2.nodes = nodes;

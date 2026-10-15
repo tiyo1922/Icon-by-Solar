@@ -1,6 +1,6 @@
 {
   "name": "@icon-by-solar/react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Official React icon library for Icon by Solar, supporting Outline, Bold, and Bold Duotone styles with full TypeScript definitions and tree-shaking.",
   "author": "Icon by Solar (Artwork by 480 Design)",

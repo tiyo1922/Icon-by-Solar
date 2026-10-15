@@ -73,4 +73,24 @@ if (!aliasHtml.includes('viewBox="0 0 24 24"') || !aliasHtml.includes('width="28
 }
 console.log('✅ 5. Component alias <IconBySolar /> rendered successfully');
 
+import { Icon4kOutline, FourKOutline } from '@icon-by-solar/react/icons/4k';
+import { LightningOutline } from '@icon-by-solar/react/icons/lightning';
+
+
+// 4. Digit-prefixed (4k) and Outline Color Inherit Tests
+const sel4k = renderToStaticMarkup(React.createElement(Icon4kOutline, { size: 24, id: 'icon-sel-4k' }));
+const selFourK = renderToStaticMarkup(React.createElement(FourKOutline, { size: 24, id: 'icon-sel-fourk' }));
+const selLightning = renderToStaticMarkup(React.createElement(LightningOutline, { size: 24, id: 'icon-sel-lightning' }));
+
+if (!sel4k.includes('id="icon-sel-4k"') || !sel4k.includes('fill="currentColor"') || sel4k.includes('fill="white"')) {
+  throw new Error('FAILED: Icon4kOutline failed render or white fill check: ' + sel4k);
+}
+if (!selFourK.includes('id="icon-sel-fourk"') || !selFourK.includes('fill="currentColor"')) {
+  throw new Error('FAILED: FourKOutline failed render check: ' + selFourK);
+}
+if (!selLightning.includes('id="icon-sel-lightning"') || !selLightning.includes('fill="currentColor"') || selLightning.includes('fill="white"')) {
+  throw new Error('FAILED: LightningOutline failed currentColor inheritance check: ' + selLightning);
+}
+console.log('✅ 6. 4k selective imports (Icon4kOutline, FourKOutline) and Outline currentColor verified');
+
 console.log('\n🎉 ALL REACT CONSUMER INTEGRATION TESTS PASSED!');

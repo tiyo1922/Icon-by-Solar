@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-10-16
+
+### Fixed
+
+#### `@icon-by-solar/react` (v1.0.1)
+- **Outline Style Color Inheritance:** Fixed standalone selective icon modules (`@icon-by-solar/react/icons/*`) where paths with white fills in source artwork failed to inherit `currentColor`. Now Outline icons reliably inherit text and Tailwind colors across all 1,246 icons while preserving intentional white cutouts in multi-layer Bold icons and layer opacities in Bold Duotone icons.
+- **Valid Identifier Syntax for Digit-Prefixed Icon `4k`:** Resolved invalid JavaScript identifier syntax (`export const 4kOutline`). Now generates standard identifiers (`Icon4k`, `Icon4kOutline`, `Icon4kBold`, `Icon4kBoldDuotone`), friendly semantic aliases (`FourK`, `FourKOutline`, `FourKBold`, `FourKBoldDuotone`), and universal component `Solar4k`, ensuring full compatibility with TypeScript, ESM, and CommonJS bundlers.
+- **Regression Test Suite:** Added comprehensive automated regression tests verifying digit-prefixed identifiers and Outline `currentColor` inheritance in both ESM and CommonJS consumer fixtures.
+
+---
+
 ## [1.0.0] - 2026-10-16
 
 ### Initial Official Release

@@ -2,6 +2,8 @@ import React from 'react';
 import { SolarIcon, IconBySolar, registerIcons } from '@icon-by-solar/react';
 import { SolarHome, HomeOutline, HomeBold, HomeBoldDuotone } from '@icon-by-solar/react/icons/home';
 import { SolarChatSquareArrow } from '@icon-by-solar/react/icons/chat-square-arrow';
+import { Icon4kOutline, FourKOutline } from '@icon-by-solar/react/icons/4k';
+import { LightningOutline } from '@icon-by-solar/react/icons/lightning';
 
 // Register only the icons needed for tree-shaking
 registerIcons([SolarHome, SolarChatSquareArrow]);
@@ -25,6 +27,9 @@ export default function App() {
         <HomeOutline size={24} id="icon-selective-outline" />
         <HomeBold size={32} color="#0342C9" id="icon-selective-bold" />
         <HomeBoldDuotone size={24} id="icon-selective-duotone" />
+        <Icon4kOutline size={24} id="icon-4k-outline" />
+        <FourKOutline size={24} id="icon-fourk-outline" />
+        <LightningOutline size={24} id="icon-lightning-outline" />
       </section>
 
       {/* 3. Alias Component */}

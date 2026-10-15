@@ -4,7 +4,7 @@ export const iconName = 'arrow-left-up';
 export const category = 'Arrows';
 export const nodes = {"bold": [["path", {"d": "M18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L10.5 11.5607L6.53033 15.5303C6.31583 15.7448 5.99324 15.809 5.71299 15.6929C5.43273 15.5768 5.25 15.3033 5.25 15V6C5.25 5.58579 5.58579 5.25 6 5.25L15 5.25C15.3033 5.25 15.5768 5.43273 15.6929 5.71299C15.809 5.99324 15.7448 6.31583 15.5303 6.53033L11.5607 10.5L18.5303 17.4697Z", "fill": "#1C274C"}]], "bold-duotone": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M6.53033 15.5303C6.31583 15.7448 5.99324 15.809 5.71299 15.6929C5.43273 15.5768 5.25 15.3033 5.25 15V6C5.25 5.58579 5.58579 5.25 6 5.25L15 5.25C15.3033 5.25 15.5768 5.43273 15.6929 5.71299C15.809 5.99324 15.7448 6.31583 15.5303 6.53033L6.53033 15.5303Z", "fill": "#1C274C"}], ["path", {"opacity": "0.5", "d": "M18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L10.5 11.5607L11.5607 10.5L18.5303 17.4697Z", "fill": "#1C274C"}]], "outline": [["path", {"fillRule": "evenodd", "clipRule": "evenodd", "d": "M5.25 6C5.25 5.58579 5.58579 5.25 6 5.25H15C15.4142 5.25 15.75 5.58579 15.75 6C15.75 6.41421 15.4142 6.75 15 6.75H7.81066L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L6.75 7.81066V15C6.75 15.4142 6.41421 15.75 6 15.75C5.58579 15.75 5.25 15.4142 5.25 15V6Z", "fill": "white"}]]};
 
-function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secondaryOpacity) {
+function renderNodes(variantNodes, variant, color = 'currentColor', secondaryColor, secondaryOpacity) {
   return variantNodes.map(([tag, attrs], index) => {
     const computed = { ...attrs };
     if (color !== 'original' && color !== 'source') {
@@ -13,7 +13,7 @@ function renderNodes(variantNodes, color = 'currentColor', secondaryColor, secon
         computed.fill = secondaryColor || color;
       } else if (attrs.fill && attrs.fill !== 'none' && attrs.fill !== 'transparent') {
         const isWhite = attrs.fill === 'white' || attrs.fill === '#FEFEFF' || attrs.fill === '#FBFCFF';
-        if (!isWhite || variantNodes.length === 1) computed.fill = color;
+        if (!(variant === 'bold' && isWhite && variantNodes.length > 1)) computed.fill = color;
       }
       if (attrs.stroke && attrs.stroke !== 'none') computed.stroke = color;
     }
@@ -47,7 +47,7 @@ export const SolarArrowLeftUp = /* @__PURE__ */ React.forwardRef((props, ref) =>
     'aria-hidden': title ? undefined : 'true',
     role: title ? 'img' : 'presentation',
     ...rest
-  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, color, secondaryColor, secondaryOpacity));
+  }, title && React.createElement('title', null, title), ...renderNodes(variantNodes, normVariant, color, secondaryColor, secondaryOpacity));
 });
 
 SolarArrowLeftUp.nodes = nodes;
