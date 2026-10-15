@@ -1,5 +1,7 @@
-import { IconNode, SolarIcon } from './index.js';
-export { CanonicalIconName, Icon, IconBySolar, IconName, IconNodeMap, IconVariant, SolarIconProps, registerIcons, renderIconNodes, resolveIcon } from './index.js';
+import { SolarIcon } from './index.js';
+export { Icon, IconBySolar, registerIcons, renderIconNodes, resolveIcon } from './index.js';
+import { IconNode } from './types.js';
+export { CanonicalIconName, IconName, IconNodeMap, IconVariant, SolarIconProps } from './types.js';
 import 'react';
 
 declare const iconAliases: Record<string, string>;

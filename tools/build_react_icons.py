@@ -312,7 +312,7 @@ export declare const {pascal}BoldDuotone: React.ForwardRefExoticComponent<Single
 export declare const {pascal}: SolarIconComponent;"""
 
         dts_code = f"""import React from 'react';
-import {{ IconNode, IconVariant }} from '../types';
+import {{ IconNode, IconVariant }} from '../types.js';
 
 export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {{
   variant?: IconVariant;
@@ -348,7 +348,7 @@ export default Solar{pascal};
         
         re_exports_esm.append(f"export * from './{canonical}.js';")
         re_exports_cjs.append(f"Object.assign(module.exports, require('./{canonical}.cjs'));")
-        re_exports_dts.append(f"export * from './{canonical}';")
+        re_exports_dts.append(f"export * from './{canonical}.js';")
 
     # Generate dist/icons/index.js, .cjs, .d.ts
     (dist_icons / 'index.js').write_text('\n'.join(re_exports_esm) + '\n', encoding='utf-8')

@@ -6,6 +6,7 @@ import {
   renderIconNodes,
   resolveIcon
 } from "./chunk-LI6CKA6Q.js";
+import "./chunk-55J6XMHW.js";
 
 // src/data.ts
 var iconAliases = {

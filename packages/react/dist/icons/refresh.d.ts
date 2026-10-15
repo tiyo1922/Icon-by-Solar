@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconNode, IconVariant } from '../types';
+import { IconNode, IconVariant } from '../types.js';
 
 export interface MultiVariantIconProps extends React.SVGAttributes<SVGSVGElement> {
   variant?: IconVariant;

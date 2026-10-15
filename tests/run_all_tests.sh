@@ -27,6 +27,7 @@ python3 tests/test_catalog_enhancements.py
 echo ""
 echo ">>> [5/8] Testing React package internal components & selective imports..."
 node tests/react/test_react_component.mjs
+node tests/react/test_typescript_declarations.mjs
 
 echo ""
 echo ">>> [6/8] Testing Laravel Blade SvgResolver unit tests..."
